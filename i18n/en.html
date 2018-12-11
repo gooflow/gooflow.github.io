@@ -1,0 +1,364 @@
+<header id="navbar-wrapper">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav_menu" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <img alt="GooFlow" src="assets/img/logo.png">
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="nav_menu">
+                <ul class="nav navbar-nav">
+                    <li class="menuItem active"><a href="#home">Home</a></li>
+                    <li class="menuItem"><a href="#features">Features</a></li>
+                    <li class="menuItem"><a href="#demo">Examples</a></li>
+                    <li class="menuItem"><a href="#guide">Guide</a></li>
+                    <li class="menuItem"><a href="#history">History</a></li>
+                    <li class="menuItem"><a href="#copyright">Purchase</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="https://github.com/sdlddr/Gooflow" title="Open In GitHub"><i class="iconfont">&#xe613;</i></a></li>
+                    <li><a href="https://gitee.com/gooflow/gooflow" title="Open In Gitee"><i class="iconfont">&#xe612;</i></a></li>
+                    <li><a href="" data-toggle="modal" data-target="#myModal" title="About Me" id="aboutMe"><i class="iconfont">&#xe677;</i></a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" id="langSwitch" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="javascript:lang.switch('zh','中文',true)">中文</a></li>
+                            <li><a href="javascript:lang.switch('en','En',true)">En</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<article class="jumbotron" id="home">
+    <a href='https://gitee.com/gooflow/gooflow' class="fork-gitee">
+        <img src='https://gitee.com/gooflow/gooflow/widgets/widget_1.svg' alt='Fork me on Gitee'>
+    </a>
+    <div class="container">
+        <section class="col-sm-12 col-md-8">
+            <div class="page-header">
+                <h1><b>GooFlow </b><small>Online Process Designer</small></h1>
+            </div>
+            <p class="description">
+                GooFlow is a online process designer for building flowcharts on web-side. There are currently two versions of Jquery and Vue. You can use it to design any variety of flow diagrams, or be applicated in systems which are needed to achieve the function of the process. The excellent experience makes the operation interface easy to use, and it can be easily used by both the initiator and the user. It's also compatible with the cross-browser (ie8--ie edge, chrome, firefox).
+                <br>　　The new Vue version has been released! Based on the original Jquery version of the technical principles in the Vue framework, a new development and implementation, does not rely on Jquery.
+            </p>
+            <div>
+                <a class="btn btn-primary btn-lg version" href="javascript:void(0)" role="button"><i class="glyphicon glyphicon-save" aria-hidden="true"></i> Download Trial</a>&nbsp;
+                &nbsp;&nbsp;
+                <div class="btn-group inline-block">
+                    <button type="button" class="btn btn-lg btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        API Document <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="docs/">Jquery Version</a></li>
+                        <li><a href="vueDoc">Vue Version</a></li>
+                    </ul>
+                </div>
+                <abbr class="tips-small"></abbr>
+            </div>
+        </section>
+        <section class="col-sm-12 col-md-4 text-center">
+            <img class="hidden-xs hidden-sm big-logo" src="assets/img/logo_big.png"/>
+            <div style="width:242px;margin:0 auto;">
+                <div style='float:left;width:50%'>
+                    <a href='https://gitee.com/gooflow/gooflow/stargazers'><img src='https://gitee.com/gooflow/gooflow/badge/star.svg?theme=dark' alt='star'></img></a>
+                </div>
+                <div style='float:left;width:50%'>
+                    <a href='https://gitee.com/gooflow/gooflow/members'><img src='https://gitee.com/gooflow/gooflow/badge/fork.svg?theme=dark' alt='fork'></img></a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</article>
+<article class="container">
+    <section class="panel">
+        <div id="features" class="anchor"></div>
+        <div class="panel-body">
+            <h3 class="text-primary text-center">Features</h3><hr/>
+            <ul class="row">
+                <li class="media col-xs-12 col-sm-6 col-md-4">
+                    <div class="media-left"><i class="media-object bg-blue ft-icon iconfont">&#xe611;</i></div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Cross-browser</h4>
+                        <span class="text-muted">GooFlow is compatible with IE8-11, Edge, FireFox, Chrome, etc.</span>
+                    </div>
+                </li>
+                <li class="media col-xs-12 col-sm-6 col-md-4">
+                    <div class="media-left"><i class="media-object bg-green ft-icon iconfont">&#xe632;</i></div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Strong Versatility</h4>
+                        <span class="text-muted">
+                            GooFlow is easily applied to design workflow engine or other process business in various of fields.</span>
+                    </div>
+                </li>
+                <li class="media col-xs-12 col-sm-6 col-md-4">
+                    <div class="media-left"><i class="media-object bg-yellow ft-icon iconfont">&#xe631;</i></div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Easy And Good UE</h4>
+                        <span class="text-muted">It uses like Desktop App with good UE, and describes flowcharts with easy Json.</span>
+                    </div>
+                </li>
+                <li class="media col-xs-12 col-sm-6 col-md-4">
+                    <div class="media-left"><i class="media-object bg-orange ft-icon iconfont">&#xe610;</i></div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Lightweight</h4>
+                        <span class="text-muted">The main file is less than 90KB after compressed, additional extension package are less than 150KB.</span>
+                    </div>
+                </li>
+                <li class="media col-xs-12 col-sm-6 col-md-4">
+                    <div class="media-left"><i class="media-object bg-red ft-icon iconfont">&#xe669;</i></div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Customizable Style</h4>
+                        <span class="text-muted">Open color config, flexible node icon style settings; developers can also modify the css file directly.</span>
+                    </div>
+                </li>
+                <li class="media col-xs-12 col-sm-6 col-md-4">
+                    <div class="media-left"><i class="media-object bg-purple ft-icon iconfont">&#xe6ac;</i></div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Ample API Function</h4>
+                        <span class="text-muted">GooFlow provides a plenty of method APIs and event APIs, so that you can develop a IDE application with it.</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section class="panel">
+        <div id="demo" class="anchor"></div>
+        <div class="panel-body">
+            <h3 class="text-primary text-center"> Examples In Jquery </h3><hr/>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-ms-12 col-md-8">
+                        <h4>Sample GooFlow Designer Interface</h4>
+                        <p><img src="assets/img/aaa.png" class="img-responsive center-block"/><br/></p>
+                    </div>
+                    <div class="col-ms-12 col-md-4">
+                        <h4>Feature trial preview</h4>
+                        <ul>
+                            <li><a href="https://gooflow.gitee.io/examples/demo_base.html" target="_blank">Basic function use</a></li>
+                            <li><a href="https://gooflow.gitee.io/examples/demo_readonly.html" target="_blank">Read-only viewing mode</a></li>
+                            <li><a href="https://gooflow.gitee.io/examples/demo_autoalign.html" target="_blank">Auto align function</a></li>
+                            <li><a href="https://gooflow.gitee.io/examples/demo_ide.html" target="_blank">IDE application scenario in the system</a></li>
+                            <li><a href="https://gooflow.gitee.io/examples/demo_sp_node.html" target="_blank">Specially shaped nodes</a></li>
+                            <li><a href="https://gooflow.gitee.io/examples/demo_custom.html" target="_blank">Custom background image type nodes</a></li>
+                            <li><a href="https://gooflow.gitee.io/examples/demo_memo.html" target="_blank">Memo examples</a></li>
+                            <li><a href="https://gooflow.gitee.io/examples/demo_export.html" target="_blank">Advanced - export pictures and print</a></li>
+                            <li><a href="https://gooflow.gitee.io/examples/demo_amd.html" target="_blank">Called in AMD development mode</a></li>
+                            <li><a href="https://gooflow.gitee.io/examples/demo_xml.html" target="_blank">Manipulating data in XML format</a></li>
+                            <li><a href="https://gooflow.gitee.io/examples/demo_navmap.html" target="_blank">Navigation map function</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <h3 class="text-primary text-center">　Examples In Other Framework </h3><hr/>
+            <div class="container-fluid text-center"><a href="https://gooflow.gitee.io/vue.html" target="_blank">Vue Version Examples</a></div>
+        </div>
+    </section>
+    <section class="panel">
+        <div id="guide" class="anchor"></div>
+        <div class="panel-body">
+            <h3 class="text-primary text-center">Guide To Start</h3><hr/>
+            <h4>Step 1: Use it (with traditional methods)</h4>
+            <p>Firstly introduce the Css file at the beginning of the page, and introduce the central files of jquery and GooFlow at the end of the body.</p>
+            <pre><code class="language-markup">&lt;head&gt;
+    &lt;link rel="stylesheet" type="text/css" href="./dist/GooFlow.min.css"/>
+&lt;/head>
+&lt;body&gt;
+    &lt;div id="demo">&lt;/div>
+    ……
+    &lt;script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" src="./dist/GooFlow.min.js"&gt;&lt;/script&gt;
+    &lt;!-- Optional, a extension file of exporting the flowchart into a picture file.  -- GooFlow.export.min.js --&gt;
+    &lt;script type="text/javascript" src="./dist/GooFlow.export.min.js"&gt;&lt;/script&gt;
+    &lt;!-- Optional, a extension file of print the flowchart or save flowchart as a PDF file.  -- GooFlow.print.min.js --&gt;
+    &lt;script type="text/javascript" src="./dist/GooFlow.print.min.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" src="./main.js"&gt;&lt;/script&gt;
+&lt;/body&gt;</code></pre>
+            Then call GooFlow methods in the business js file.
+            <pre><code class="language-javascript">/** main.js **/
+	var options = {
+		toolBtns:["start round mix","end round","task","node","chat","state","plug","join","fork","complex mix"],
+		haveHead:true,
+		headLabel:true,
+		headBtns:["new","open","save","undo","redo","reload","print"],// define header's buttons when haveHead=true
+		haveTool:true,
+		haveDashed:true,
+		haveGroup:true,
+		useOperStack:true
+	};
+	var demo;
+	$(document).ready(function(){
+		demo = GooFlow.init("#demo",options);
+        // demo = $.createGooFlow("#demo",options); //another constructor method
+        demo.setNodeRemarks(remark); //remarks is a title prompt definition for the left toolbar buttons
+		demo.loadData(jsondata); //jsondata is a json data for expressing the detail of flowcharts
+	});</code></pre><br>
+            <h4>Step 2: Use it (in AMD modular)</h4>
+            Take <span class="text-danger">RequireJs</span>as an example, first add the following settings to the RequireJs in the repository's unified configuration file, you need to use the <span class="text-danger">require-css</span><span class="text-muted">(css.min.js)</span>plugin.
+            <pre><code class="language-javascript">/** require.config.js **/
+requirejs.config({
+    map: {
+		'*': {
+			'css': 'https://cdn.bootcss.com/require-css/0.1.10/css.min.js' // https://github.com/guybedford/require-css, RequireJs's plugin
+		}
+	},
+    paths: {
+        jquery: 'https://cdn.bootcss.com/jquery/1.12.4/jquery.min',
+        GooFlow: './dist/GooFlow.min',
+        'GooFlow.export': './dist/GooFlow.export',  // Optional, a extension file of exporting the flowchart into a picture file.
+        'GooFlow.print': './dist/GooFlow.print',    // Optional, a extension file of print the flowchart or save flowchart as a PDF file.
+    },
+    //// ……
+    shim: {
+        GooFlow: {
+            deps:['css!./dist/GooFlow.min.css','jquery']
+        }
+    },
+});</code></pre>
+            <p>In the html file that will asynchronously import the main.js entry business file, add this segment to the body's end;</p>
+            <pre><code class="language-markup">&lt;body&gt;
+    &lt;div id="demo">&lt;/div>
+    ……
+    &lt;script data-main="main.js" src="../lib/requireJs/require.js">&lt;/script>
+	&lt;script src="../assets/js/require.config.js">&lt;/script>
+&lt;/body&gt;</code></pre>
+            Then in the business js file, import packages and make initialization.
+            <pre><code class="language-javascript">/** main.js **/
+require(['jquery','GooFlow'], function ( $, GooFlow ) {
+    // code for init
+    var property = { …… };
+    var demo = GooFlow.init("#demo",options);
+    demo.setNodeRemarks(remark); //remarks is a title prompt definition for the left toolbar buttons
+    demo.loadData(jsondata);     //jsondata is a json data for expressing the detail of flowcharts
+});</code></pre>
+            If you want to use the functions provided by other extension packages, please be sure to load the corresponding extension packages after loading GooFlow.min.js to ensure that the corresponding function is enable.
+            <pre><code class="language-javascript">/** main.js using extension packages **/
+require(['jquery', 'GooFlow'], function ( $, GooFlow ) {
+    require(['GooFlow.export','GooFlow.print'], function (){
+        // code for init
+        var options = { …… };
+        var demo = GooFlow.init("#demo",options);
+        demo.setNodeRemarks(remark);         //remarks is a title prompt definition for the left toolbar buttons
+        demo.setHeadToolsRemarks(headBtns);  //headBtns is a title prompt definition for the header bar's buttons
+        demo.loadData(jsondata);             //jsondata is a json data for expressing the detail of flowcharts
+        demo.onBtnSaveClick=function(){
+            demo.exportDiagram('myFile');//the function of exporting a png file
+        }
+        demo.onPrintClick=function(){
+			demo.print();//the function of printing or save flowchart as a PDF file
+        }
+    });
+});</code></pre><br>
+            <h4>To learn more, please refer to <a href="docs/">API Document of Jquery Version</a> or <a href="vueDoc/">API Document of Vue Version</a>.</h4>
+        </div>
+    </section>
+    <section class="panel">
+        <div id="history" class="anchor"></div>
+        <div class="panel-body">
+            <h3 class="text-primary text-center">Updated History</h3><hr/>
+            <ul class="f14 text-muted">
+                <li><b class="f18 text-primary">1.0.0 for Vue :</b><br> New Vue Component Version Reloading Attacks! </li>
+                <li><b class="f18 text-primary">1.3.10 :</b><br> Automatically aligns and displays the ability to align guides when moving a block element.</li>
+                <li><b class="f18 text-primary">1.3.9 :</b><br> Important update! Add thumbnail navigation map features, including drag positioning and live scrolling. Add the mouse wheel +Ctrl key to control the zoom function of drawing area.</li>
+                <li><b class="f18 text-primary">1.3.9r1 :</b><br> Important updates! Fixed some newly discovered bugs; increased support for segments, modified the way of setting for the dashed line; added multi-selection features (for nodes and connections only), and enabled bulk move and deletion of multi-selected collections of elements.</li>
+                <li><b class="f18 text-primary">1.3.8rp :</b><br> Fixed some newly discovered bugs and improve the overall operating efficiency; use the new anti-infringement mechanism to replace the original JS mining on the trial version; separate the swimlane support from the core file and form a separate extension function block <code>GooFlow.group.min.js</code>; add note elements (via new function blocks); add custom background image type nodes to adapt to more scenes.</li>
+                <li><b class="f18 text-primary">1.3.7 :</b><br> Minor and Small Bonus: Fixed a small BUG of the actual width and height algorithm of the calculation flow chart. When initializing, the property of setting the initial default name prefix of the node and the lane is added.</li>
+                <li><b class="f18 text-primary">1.3.6 :</b><br> Enhanced functionality! Fixed the problem that the focus event is triggered twice when a element is selected. Adds the right-clicking the blank area of the drawing area to trigger the operation of the blur event. Adds an interface to set the extended service attribute of an element. After the flowchart loaded, user can use two new interfaces to modify the color or text color of an element.</li>
+                <li><b class="f18 text-primary">1.3.5 :</b><br> Feature Update! Grouped lanes have added "milk" color; users can customize special graphics colors and text colors for individual nodes or lines; the designer adds <code>ctrl+c</code> keyword command to copy node and <code>ctrl+v</code> keyword command to paste node.</li>
+                <li><b class="f18 text-primary">1.3.4 :</b><br> Important updates! Fixed some bugs in event response, image export, and drawing area scaling; added four special shape nodes: ellipse, rhombus, parallelogram, and capsule.</li>
+                <li><b class="f18 text-primary">1.3.3 :</b><br> Important functions on line! New support for flowchart data of XML format under Bpmn2.0 specification is added, which can load or export XML data of Bpmn2.0 specification. Allowed users download flowchart data as a json file or Bpmn2.0's XML file. Further optimize the code.</li>
+                <li><b class="f18 text-primary">1.3.2 :</b><br> Optimized the code structure and user experience; Strengthen cohesion, simplify the internal implementation of the process save as picture function and print function, got rid of the dependence on third-party plugins from version 1.1 to 1.2, and exports results more clearly. And could be backwards compatible to IE9; each part of the button could be configured through the built-in interface method; node data added "areaId" optional attribute: indicates which area group (lane) it belongs to. The overall also added support for amd, cmd development model specification.</li>
+                <li><b class="f18 text-primary">1.3 :</b><br> Fixed some bugs that affect the user experience and usage, and add flexible annotation configuration functions for all operation buttons in the workspace.</li>
+                <li><b class="f18 text-primary">1.2.1 :</b><br> Improved support for IE8; optimize the accuracy of manually resized elements; add functionality to print previews or save as PDFs.</li>
+                <li><b class="f18 text-primary">1.2 :</b><br> Major update version! Added method for right-click events and double-click events for nodes, connections, and lane blocks (return false to prevent browser default events from occurring); Add dashed line drawing function method: should be requested by many users Added important flowchart zoom function interface! The scalable range is from 50% to 400% of the original size. (Only provide method interface, you can chooses to bind the third-party's operation element)</li>
+                <li><b class="f18 text-primary">1.1 :</b><br> BUG has been further amended; the function of exporting the flow chart in the work area into a picture and allowing the user to download has been added. Currently only IE10, IE edge, Chrome, FireFox, Safari browsers can be supported, and this function needs to load new GooFlow. .export.js extension package.</li>
+                <li><b class="f18 text-primary">1.0.2 :</b><br> Fixed the problem that when a node was originally marked, the marked red mode disappeared after the selection and cancellation.</li>
+                <li><b class="f18 text-primary">1.0 :</b><br> The initial official version. Compared with the previous trial version, the BUG has been further revised, more customizable color items are available, and there is no longer a single picture. All icons are evenly shaped as vector fonts.</li>
+            </ul>
+        </div>
+    </section>
+    <section class="panel">
+        <div id="copyright" class="anchor"></div>
+        <div class="panel-body">
+            <h3 class="text-primary text-center">Purchase Authorization</h3><hr/>
+            <p class="indent32">The version released in the current hosting project is only a trial version, which will make the CPU meaningless idling and energy consumption, and it also contains regular pop-up advertisements that can only be used for local functional testing and must not be put into use in actual projects.</p>
+            <p class="indent32">If you want to apply to a software development project, you can only use the pure version without any additional official version, and you need to contact the author himself to purchase the license. Thank for your attention to GooFlow.</p>
+            <p class="indent32">( Notes: Please don't try to crack the program no matter that it is official edition or trial edition. It's a nfringement act. )</p>
+            <p class="indent32 text-muted">
+                The official license fee is <b class="text-primary">￥4,500 RMB / product</b>.
+                Currently, it supports Alipay and Weixin payment. The purchase of a license corresponds to only one item of product. (if the license for the 1st period of the project is purchased, it can be used continuously in the second and subsequent periods; the same product can be under one license. Different customized versions are sold to different customers.)
+            </p>
+
+            <table class="table table-striped table-bordered allcenter">
+                <thead><tr><th>#</th><th>Trial Edition</th><th>Official Edition</th></tr></thead>
+                <tbody>
+                <tr><td>Excellent stability</td><td><i class="glyphicon glyphicon-remove text-danger"></i></td><td><i class="glyphicon glyphicon-ok text-success"></i></td></tr>
+                <tr><td>High efficiency</td><td><i class="glyphicon glyphicon-remove text-danger"></i></td><td><i class="glyphicon glyphicon-ok text-success"></i></td></tr>
+                <tr><td>Low resource occupancy</td><td><i class="glyphicon glyphicon-remove text-danger"></i></td><td><i class="glyphicon glyphicon-ok text-success"></i></td></tr>
+                <tr><td>Timed Advertisement</td><td><i class="glyphicon glyphicon-ok text-success"></i></td><td><i class="glyphicon glyphicon-remove text-danger"></i></td></tr>
+                <tr><td>Replicable Transmission</td><td><i class="glyphicon glyphicon-remove text-danger"></i></td><td><i class="glyphicon glyphicon-remove text-danger"></i></td></tr>
+                <tr><td>Advanced Features</td><td><i class="glyphicon glyphicon-remove text-danger"></i></td><td><i class="glyphicon glyphicon-ok text-success"></i></td></tr>
+                <tr><td>Runs demos in local environment only for testing functions</td><td><i class="glyphicon glyphicon-ok text-success"></i></td><td><i class="glyphicon glyphicon-ok text-success"></i></td></tr>
+                <tr><td>Can be applied to projects</td><td><i class="glyphicon glyphicon-remove text-danger"></i></td><td><i class="glyphicon glyphicon-ok text-success"></i></td></tr>
+                <tr><td>Lifetime upgrade for free</td><td><i class="glyphicon glyphicon-remove text-danger"></i></td><td><i class="glyphicon glyphicon-ok text-success"></i></td></tr>
+                <tr><td>Better technical support</td><td><i class="glyphicon glyphicon-remove text-danger"></i></td><td><i class="glyphicon glyphicon-ok text-success"></i></td></tr>
+                <tr><th>One authorization price：</th><td><span class="text-muted">( for free )</span></td><td><b class="text-primary">￥4,500</b></td></tr>
+                </tbody>
+            </table>
+
+            <p class="indent32 text-muted">To learn more，please click <a href="javascript:document.getElementById('aboutMe').click()">"About Me"</a> in page of top-right to
+                contact me author.</p>
+        </div>
+    </section>
+</article>
+
+<article class="container">
+    <hr style="border-top:1px solid #ccc">
+    <div class="center-block text-center form-group f18" style="margin-top:-32px;width:180px;background:#f1f1f1;color:#bbb">Business Customers</div>
+    <div class="row"></div>
+    <hr>
+</article>
+
+<footer>
+    <p>Copyright ©2018 GooFlow official website, foolegg@126.com(sdlddr)</p>
+</footer>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">About Me</h4>
+            </div>
+            <div class="modal-body">
+                <h4 class="text-success">GooFlow</h4>
+                <p class="f14 text-muted indent28">
+                    GooFlow was born in early 2013 and has undergone major updates so far, aiming to become a cross-browser, lightweight, portable, user-friendly, and easy-to-use product. Because of the independent development for the author himself, due to limited energy and various other reasons, it was not until the beginning of 2017 that the first official version was released, but it has been released from time to time. We would like to thank all early adopters for their contributions to the improvement of GooFlow's main features.
+                </p>
+                <p class="f14 text-muted indent28">
+                    At present, the trial version of GooFlow project has been put on Gitee. Everyone can raise questions and suggestions on
+                    <a href="https://gitee.com/gooflow/gooflow/issues" target="_blank">Gitee Issues</a>.
+                </p>
+                <hr>
+                <h4 class="text-success">Contact Information</h4>
+                <address style="margin-left:15px">
+                    <blockquote class="f16">
+                        Weixin ： (+86) 18648945414<br>
+                        QQ ： <a href="tencent://message/?uin=115247126&Site=GooFlow官网&Menu=yes">115247126</a><br>
+                        Email ： <a href="mailto:fool-egg@163.com">fool-egg@163.com</a><br>
+                        Gitee ： <a href="https://gitee.com/foolegg126" target="_blank">foolegg126</a>
+                    </blockquote>
+                </address>
+            </div>
+        </div>
+    </div>
+</div>

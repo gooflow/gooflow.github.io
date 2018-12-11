@@ -1,0 +1,63 @@
+<div class="main-frame" data-title="构造组件" id="article_constructor">
+    <article class="main-container">
+        <div class="page-header"><h1>构造组件</h1></div>
+        <div id="function" class="container-fluid" data-title="组件引用">
+            <h2 class="text-primary">组件引用</h2>
+            <pre><code class="language-markup">
+    &lt;goo-flow :property="myProps" :global="global" :plugIns="plugIns" ref="gooFlow"&gt;
+        &lt;!--这里是一个slot，可嵌入组件头部左上角区域的自定义dom内容--&gt;
+    &lt;/goo-flow&gt;
+    ……
+    import GooFlow from './GooFlow/GooFlow';
+    export default {
+        ……
+        components:{GooFlow},//组件申明
+        ……
+    }</code></pre>
+        </div>
+        <div id="params" class="container-fluid" data-title="传参">
+            <h2 class="text-primary">传参</h2>
+            <h3>property <small>类型：Json Object</small></h3>
+            详细的初始化参数选项。
+            <table class="table table-striped table-bordered">
+                <thead><tr>
+                    <th class="text-center">属性</th><th class="text-center">类型</th><th class="text-center">默认值</th><th class="text-center">描述</th>
+                </tr></thead>
+                <tbody class="text-center">
+                <tr><td class="text-primary f16">width</td><td>Number</td><td class="text-gray">(undefined)</td><td class="text-muted text-left">设计器的宽度，单位为像素，默认为原Dom窗口的自适应宽度。</td></tr>
+                <tr><td class="text-primary f16">height</td><td>Number</td><td class="text-gray">(undefined)</td><td class="text-muted text-left">设计器的高度，单位为像素，默认为原Dom窗口的自适应高度。</td></tr>
+                <tr><td class="text-primary f16">initNum</td><td>Number</td><td class="text-gray">1</td><td class="text-muted text-left">计算默认元素名称后缀的起始Sequence。</td></tr>
+                <tr><td class="text-primary f16">haveHead</td><td>Boolean</td><td class="text-gray">false</td><td class="text-muted text-left">是否需要展示标题及顶部按钮的顶部栏。</td></tr>
+                <tr><td class="text-primary f16">headLabel</td><td>Boolean</td><td class="text-gray">false</td><td class="text-muted text-left">顶部栏中是否需要展示标题；仅当<code>haveHead=true</code>时该项有效。</td></tr>
+                <tr><td class="text-primary f16">initLabelText</td><td>String</td><td class="text-gray">newFlow_1</td><td class="text-muted text-left">初始化时标题的内容，仅当<code>haveHead==true</code>时有效。</td></tr>
+                <tr><td class="text-primary f16">haveTool</td><td>Boolean</td><td class="text-gray">false</td><td class="text-muted text-left">是否需要左边的工具栏，这决定了渲染完成后是编辑模式还是只读模式。</td></tr>
+                <tr><td class="text-primary f16">toolTextWidth</td><td>Number</td><td class="text-gray">0</td><td class="text-muted text-left">工具栏中按钮提供给说明文字显示的空间宽度，默认为0时表示不显示说明文字。</td></tr>
+                <tr><td class="text-primary f16">haveDirect</td><td>Boolean</td><td class="text-gray">true</td><td class="text-muted text-left">是否需要画有向实线功能，仅当<code>haveTool==true</code>时有效。（从1.3.9开始，默认为true）</td></tr>
+                <tr><td class="text-primary f16">haveDirDashed</td><td>Boolean</td><td class="text-gray">false</td><td class="text-muted text-left">是否需要画有向虚线功能，仅当<code>haveTool==true</code>时有效。（从1.3.9开始，取代原haveDashed属性）</td></tr>
+                <tr><td class="text-primary f16">haveSegment</td><td>Boolean</td><td class="text-gray">false</td><td class="text-muted text-left">是否需要画无向实线功能，仅当<code>haveTool==true</code>时有效。（从1.3.9开始）</td></tr>
+                <tr><td class="text-primary f16">haveSegDashed</td><td>Boolean</td><td class="text-gray">false</td><td class="text-muted text-left">是否需要画无向虚线功能，仅当<code>haveTool==true</code>时有效。（从1.3.9开始）</td></tr>
+                <tr><td class="text-primary f16">useOperStack</td><td>Boolean</td><td class="text-gray">false</td><td class="text-muted text-left">是否要使用事务序列管理工作区内的操作事务，选<code>true</code>时将开启撤销undo和重做redo的功能，该设定只在<code>编辑模式</code>下有效。</td></tr>
+                <tr><td class="text-primary f16">toolBtns</td><td>Array</td><td class="text-gray">[String]</td><td class="text-muted text-left">左边的工具栏中，除了基本的结点/连线按钮图标外，还有哪些类型名的节点，仅当<code>haveTool==true</code>时有效。<br>
+                    具体写法如：<code>["task","node","chat","state","plug"]</code>。数组中每个单元就是这些结点类型的名称，可用系统中自带的，也可自定义类型，这时就需要定义其CSS样式类<code>'.ico_'+自定义类的名称</code>。<br>
+                    初始化时定义节点类型为<code>原有类型+" round"</code>，可让节点为变为圆形；定义节点类型为<code>原有类型+" mix"</code>，可让节点变成复合节点的颜色。<code>原有类型+" myType"</code>中的myType可为自己写的一种特殊样式类。</td></tr>
+                <tr><td class="text-primary f16">headBtns</td><td>Array</td><td class="text-gray">[String]</td><td class="text-muted text-left">顶部栏的按钮从左至右依次都有哪些类型名的按钮，仅当<code>haveHead==true</code>时有效。<br>
+                    具体写法如:<code>["new","open","save","undo","redo","reload","print"]</code>；除了两个分别用来撤销\重做操作的按钮外，其余按钮点击时方法事件都需要自定义。<br>
+                    用户也可自定义按钮类型，这时就需要定义其CSS样式类<code>'.ico_'+自定义类的名称</code></td></tr>
+                <tr><td class="text-primary f16">nodeCustoms</td><td>JsonMap</td><td class="text-gray">{}</td><td class="text-muted text-left">对于某些特殊的节点类型采取只使用自定义背景图展示的映射配置。<br>其定义详见<a href="#structures">“数据结构定义”</a>章节中的<code>NodeCustoms</code></td></tr>
+                <tr><td class="text-primary f16">headBtnEvents</td><td>JsonMap</td><td class="text-gray">(undefined)</td><td class="text-muted text-left">对头部栏另行自定义类型按钮的事件绑定map集合,key为按钮类型名，value为方法实现定义</td></tr>
+                <tr><td class="text-primary f16">haveMulti</td><td>Boolean</td><td class="text-gray">false</td><td class="text-muted text-left">是否开启对多个节点/连线元素进行选择，并进行批量移动或删除，或者批量添加多个节点/连线元素的功能。默认关闭。（从1.3.9开始）</td></tr>
+                </tbody>
+            </table>
+            <h3>global <small>类型：Json Object</small></h3>
+            对GooFlow组件颜色、文字提示内容的全局定义，详解RAR实例包中的<code>global.js</code>配置文件。
+            <h3>plugIns <small>类型：Array(Object)</small></h3>
+            对GooFlow组件实例要引入的的功能扩展插件列表。全部列表单元都来自扩展库文件的引入：<code>import 扩展插件名 from './GooFlow/extends/扩展插件文件名';</code>
+        </div>
+        <div id="returns" class="container-fluid" data-title="返回值">
+            <h2 class="text-primary">返回值</h2>
+            <h3>return <small>类型：Vue Component</small></h3>
+            <p>例如，在mounted事件中：<code>const demo = this.$refs.gooflow;</code></p>
+            <p>返回一个Vue组件对象，通过该对象可调用其丰富的接口，甚至直接操作里面的元素。关于这种神奇的组件对象的介绍，详见<a href="#properties">“内部属性”</a>章节、<a href="#methods">“方法接口”</a>章节和<a href="#events">“事件钩子”</a>章节。</p>
+        </div>
+    </article>
+</div>

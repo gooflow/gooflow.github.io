@@ -1,0 +1,117 @@
+<div class="main-frame" data-title="Quick Start" id="article_start">
+    <article class="main-container">
+        <div class="page-header"><h1>GooFlow Document <small id="myVersion"></small></h1></div>
+        <p class="text-muted f16">The content of this site is online document, remember collect it!</p>
+        <div id="overview" class="container-fluid" data-title="Overview">
+            <div class="row mgb15">
+                <div class="col-md-8 col-ms-12">
+                    <h2 class="text-primary">Overview</h2>
+                    <p class="indent28 f16">
+                        GooFlow is a web-based process designer that is easy to use, easy to use, and beautiful in interface. There are currently two versions of Jquery and Vue, and inherit the experience of operating experience like PhotoShop. It can describe a process in a specific Json format and present it to users. It provides rich operating functions for users to view or edit instantly, and it can be easily customized to expand into an online IDE by providing rich interfaces. Believe that both developers and end users will love GooFlow.
+                    </p>
+                    <p>There is Vue version. It is a new Vue component that uses ES6 standard grammar and does not rely on Jquery. It no longer supports older browsers under IE11.<br>
+                        In order to reduce internal coupling and consider that users may use HTTP libraries other than axios, the Vue version of GooFlow will no longer provide an interface for remote asynchronous reading of flow chart data. Users can read data with the third-party HTTP library interface before calling the data loading interface of the GooFlow component.</p>
+                </div>
+                <div class="col-md-4 hidden-xs hidden-sm text-center"><img style="width:170px;margin-top:40px" src="../assets/img/logo_big.png"></div>
+            </div>
+        </div>
+        <div id="simpleEg" class="container-fluid" data-title="Open An Example">
+            <h2 class="text-primary">Open An Vue Example</h2>
+            <p>1. Firstly, a Vue project is built using Vue-cli scaffolding, and vue-router is introduced.</p>
+            <p>2. Then install Axios in the project using the NPM install command.</p>
+            <p>3. The rar package obtained after purchase is decompressed into the project root directory and the following directory structure is obtained:</p>
+            <div><img src="../assets/img/vue_tree.png" class="img-responsive center-block"></div><br>
+            <p>Run <code>npm run dev</code> directly. You can see the same function display page as in <a href="https://gooflow.gitee.io/vue.html" target="_blank">Online Vue version example show</a>. </p>
+            <p>4. After decompressing the RAR file, you can also see a zip file. After decompressing the RAR file, you can see the whole content of the GooFlow component of the Vue version, which can be used in the actual Vue project.</p>
+            <p>When using, first use the gooflow tag:</p>
+            <pre><code class="language-markup">&lt;!-- demoBase.vue --&gt;
+&lt;template&gt;
+    &lt;div id="DemoBase"&gt;
+        &lt;goo-flow :property="myProps" :global="global" :plugIns="plugIns" ref="gooFlow"&gt;&lt;/goo-flow&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+            </code></pre>
+            <p>Then in the script tag:</p>
+            <pre><code class="language-javascript">
+    /*Load the GooFlow component first*/
+    import GooFlow from './GooFlow/GooFlow';
+    import global from '@/assets/GooFlow/global'; //This configuration item is for reference only and is not packaged and published with other JS files.
+    import group from './GooFlow/extends/group'; //GooFlow Extended Swimlane Support
+    import autoAlign from './GooFlow/extends/autoalign'; //GooFlow Extension Automatic Alignment Support
+    import print from './GooFlow/extends/print'; //GooFlow extensions print or save flowcharts as PDF support
+    import axios from 'axios';
+    export default {
+        name: "DemoBase",
+        components:{GooFlow},//Component declaration
+        data(){
+            return {
+                myProps:{
+                    id:'aaaabbb',width:'900',height:'600',
+                    haveHead:true,
+                    headLabel:true,
+                    headBtns:["new","open","save","undo","redo","reload","print"],//If haveHead=true, it will define these buttons in the headbar.
+                    haveTool:true,
+                    useOperStack:true,
+                    haveMulti:true,
+                    haveDirDashed:true,
+                    haveSegment:true,
+                    haveSegDashed:true,
+                    toolBtns:["start round mix","end round","task","node","chat","state","plug","join","fork","complex mix"],
+                    //If haveTool=true, define toolbar buttons for editability
+                    toolTextWidth:60
+                },
+                global:global,
+                plugIns: [group,memo,autoAlign,print],//Custom Extension of Function Modules
+            }
+        },
+        mounted(){
+            let demo = this.$refs.gooFlow; //Getting GooFlow Component Objects
+            //axios.get('/static/demo/data2.json',{},{ headers: { 'Content-Type': 'application/json' } })
+            //    .then(function(res){
+            //        demo.loadData(res.data);//Load flow chart JSON data
+            //    });
+
+            demo.bindOperEvent({
+                "onPrintClick":function(){
+                    demo.print();//Interface calls to print or save flowcharts as PDF
+                }
+            });
+        }
+    }</code></pre>
+        </div>
+        <div id="uiDesign" class="container-fluid" data-title="User Interface">
+            <h2 class="text-primary">User Interface</h2>
+            <p>as the picture shows:</p>
+            <div><img src="../assets/img/aaa.png" class="img-responsive center-block"></div><br>
+            <p class="indent28"><b class="text-warning">Workspace</b>, its width and height is initially the size without the scroll bar.
+                When the mouse slides to the right/bottom side, a half-tone layer appears. Just click on it to manually expand the workspace.
+                The horizontal X-axis direction is<span class="text-warning">from left to right</span>, and the vertical Y-axis direction is <span class="text-warning">from top to bottom</span>, which are the same as the CSS definition.
+                When loading a drawn json flowchart data, the width and height of the workspace will also adaptively load the width and height of the flowchart and automatically expand.</p>
+            <p class="indent28"><b class="text-warning">The drawing toolbar</b> is on the left of the drawing area, from top to bottom:
+                <span class="text-warning">selection pointer, connection line, start node, end node, task node, automatic node, decision node, status node, extension additional node, branch node, aggregate node Point, composite sub-process node</span>.
+                The last one is not a node, but a switch for node connection editing and grouping lane editing two work states.</p>
+            <p class="indent28"><b class="text-warning">The header's bar</b> is the place where the flowchart titles are displayed and where some function buttons are placed. These buttons can be customized by the user in addition to the system.</p>
+            <p class="indent28"><b class="text-warning">If you do not set the left toolbar when it is initialized</b>, the editing function is turned off and the component becomes a flowchart viewer/tracker.</p>
+        </div>
+        <div id="elDesign" class="container-fluid" data-title="Charts's Elements">
+            <h2 class="text-primary">Charts's Elements</h2>
+            <table class="table table-bordered">
+                <tr style="background:#f9f9f9"><th class="text-center">Node selected</th><th class="text-center">Line selected</th><th class="text-center">Lane selected</th><th class="text-center">Memo selected</th></tr>
+                <tr>
+                    <td class="text-center"><img src="../assets/img/node.png" class="img-responsive center-block"></td>
+                    <td class="text-center"><img src="../assets/img/line.png" class="img-responsive center-block"></td>
+                    <td class="text-center"><img src="../assets/img/area.png" class="img-responsive center-block"></td>
+                    <td class="text-center"><img src="../assets/img/memo.png" class="img-responsive center-block"></td>
+                </tr>
+            </table>
+            <p>In combination with the complete screenshot in the last section and the selected element style table above, you can find:</p>
+            <ul>
+                <li><b class="text-warning">Nodes</b> defaults to a light blue rounded rectangle; if a <code>.item_mix</code> class is added, it well be green；if a <code>.item_round</code>class is added, it well become a circle.</li>
+                <li><b class="text-warning">Nodes</b> are renamed, double-click the text, drag, resize, add and delete as default functions, and they can customize right-click events.</li>
+                <li><b class="text-warning">Lines</b> have four styles which are <b>directional solid line</b>, <b>directional dotted line</b>, <b>solid segment</b> and <b>dotted segment</b>(added since the 1.3.9 version).There are three types of line: a straight line, a middle line that can be dragged up and down, and a middle line that can be dragged left and right. Double-click the line to directly edit the text description of the line. Manually change the start or end of the connection.</li>
+                <li><b class="text-warning">Grouping lanes</b>, the switches in the lower left corner are required to be edited after being pressed. There are four random colors. Click the circle icon in the upper left corner to change the color. Double-click the text to directly edit, or drag and resize as the node.</li>
+                <li><b class="text-warning">Memos</b>, the switches in the lower left corner are required to be edited after being pressed. Double-click the center area to directly edit, or drag and resize as the lane.</li>
+            </ul>
+        </div>
+    </article>
+</div>

@@ -1,0 +1,121 @@
+<div class="main-frame" data-title="快速入门" id="article_start">
+    <article class="main-container">
+        <div class="page-header"><h1>GooFlow Vue 使用文档 <small id="myVersion"></small></h1></div>
+        <p class="text-muted f16">本站内容为在线文档，各位记得收藏本站哦！</p>
+        <div id="overview" class="container-fluid" data-title="概述">
+            <div class="row mgb15">
+                <div class="col-md-8 col-ms-12">
+                    <h2 class="text-primary">概述</h2>
+                    <p class="indent28 f16">
+                        GooFlow是一个极易上手、使用方便、界面美观的网页端流程设计器，目前有Jquery和vue两个版本，继承了类似PhotoShop的操作体验习惯。
+                        它能将一个流程以特定的Json格式描述出来并展示给用户，提供丰富的操作功能让用户即时查看或编辑，并通过提供丰富的接口让其很容易被订制扩展成为一个在线的IDE。
+                        相信无论是开发者还是最终用户，都会爱上GooFlow。
+                    </p>
+                    <p>当前介绍的是Vue版本，是一个使用es6标准语法，不依赖Jquery而重新实现的Vue组件，不再支持IE11以下的老式浏览器。<br>
+                        为降低内部耦合性，以及考虑到用户可能使用axios以外的HTTP库，Vue版GooFlow将不再提供远程异步读取流程图数据的接口。用户可以先用第三方HTTP库接口读取数据后，再调用GooFlow组件的数据载入接口。</p>
+                </div>
+                <div class="col-md-4 hidden-xs hidden-sm text-center"><img style="width:170px;margin-top:40px" src="../assets/img/logo_big.png"></div>
+            </div>
+        </div>
+        <div id="simpleEg" class="container-fluid" data-title="开启实例">
+            <h2 class="text-primary">开启Vue实例</h2>
+            <p>1、首先使用Vue-cli脚手架搭建一个Vue项目，引入vue-router。</p>
+            <p>2、然后在项目中使用npm install 命令安装axios。</p>
+            <p>3、将购买后获取到的rar包解压到项目根目录，得到如下的目录结构：</p>
+            <div><img src="../assets/img/vue_tree.png" class="img-responsive"></div><br>
+            <p>直接运行<code>npm run dev</code>，就可看到与在 <a href="https://gooflow.gitee.io/vue.html" target="_blank">线Vue版实例展示</a> 一样的功能展示页了。</p>
+            <p>4、解压RAR文件后还可看一个zip文件，将其解压后便是Vue版GooFlow组件的全部内容，可覆盖到实际的Vue项目中使用。</p>
+            <p>使用时，先使用上gooflow标签：</p>
+            <pre><code class="language-markup">&lt;!-- demoBase.vue --&gt;
+&lt;template&gt;
+    &lt;div id="DemoBase"&gt;
+        &lt;goo-flow :property="myProps" :global="global" :plugIns="plugIns" ref="gooFlow"&gt;&lt;/goo-flow&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+            </code></pre>
+            <p>再在script标签中：</p>
+            <pre><code class="language-javascript">
+    /*先加载GooFlow组件*/
+    import GooFlow from './GooFlow/GooFlow';
+    import global from '@/assets/GooFlow/global'; //该配置项仅供参考，不随其它JS文件一起打包发布
+    import group from './GooFlow/extends/group'; //GooFlow扩展泳道支持
+    import autoAlign from './GooFlow/extends/autoalign'; //GooFlow扩展自动对齐支持
+    import print from './GooFlow/extends/print'; //GooFlow扩展将流程图打印或另存为PDF的支持
+    import axios from 'axios';
+    export default {
+        name: "DemoBase",
+        components:{GooFlow},//组件声明
+        data(){
+            return {
+                myProps:{
+                    id:'aaaabbb',width:'900',height:'600',
+                    haveHead:true,
+                    headLabel:true,
+                    headBtns:["new","open","save","undo","redo","reload","print"],//如果haveHead=true，则定义HEAD区的按钮
+                    haveTool:true,
+                    useOperStack:true,
+                    haveMulti:true,
+                    haveDirDashed:true,
+                    haveSegment:true,
+                    haveSegDashed:true,
+                    toolBtns:["start round mix","end round","task","node","chat","state","plug","join","fork","complex mix"],
+                    //如果haveTool=true，为可编辑则定义工具栏的按钮
+                    toolTextWidth:60
+                },
+                global:global,
+                plugIns: [group,memo,autoAlign,print],//功能模块自定义扩展
+            }
+        },
+        mounted(){
+            let demo = this.$refs.gooFlow; //获取GooFlow组件对象
+            //axios.get('/static/demo/data2.json',{},{ headers: { 'Content-Type': 'application/json' } })
+            //    .then(function(res){
+            //        demo.loadData(res.data);//载入流程图json数据
+            //    });
+
+            demo.bindOperEvent({
+                "onPrintClick":function(){
+                    demo.print();//将流程图打印或另存为PDF的接口调用
+                }
+            });
+        }
+    }</code></pre>
+            <p>运行 <code>npm run dev</code>，就可以看到一个空白绘图区的设计器页了！体验一下绘画流程图时行云流水的快感。</p>
+            <div style="max-width:800px;" class="center-block"><img src="../assets/img/init.png" class="img-responsive center-block"></div>
+        </div>
+        <div id="uiDesign" class="container-fluid" data-title="用户界面">
+            <h2 class="text-primary">用户界面</h2>
+            <p>如图所示：</p>
+            <div><img src="../assets/img/aaa.png" class="img-responsive center-block"></div><br>
+            <p class="indent28"><b class="text-warning">工作区</b> 宽度高度初始为无滚动条时的大小，鼠标滑到最右/最下边时出现半透层，只要对其点击便可手工扩展工作区。
+                水平X轴方向<span class="text-warning">由左至右</span>，竖直Y轴方向<span class="text-warning">由上至下</span>，与CSS样式中的顶距top和左距left是一样的。
+                当载入一个已绘制好的JSON流程图数据时，工作区宽高也会自适应载入流程图的宽高大小，自动扩展。</p>
+            <p class="indent28"><b class="text-warning">绘制工具栏</b> 在绘图区左边，从上至下依次为：
+                <span class="text-warning">选择指针、连接线、开始节点、结束节点、任务节点、自动节点、决策节点、状态节点、扩展附加节点、分支结点、聚合结点、复合子流程结点</span>
+                ；最后一个不是节点，而是节点连线编辑与分组泳道编辑两种工作区状态的切换开关，当切换至分组泳道编辑后，只能操作分组泳道块，节点与连线都被锁定；反之即然。</p>
+            <p class="indent28"><b class="text-warning">顶部操作栏</b> 是展示流程图标题和放置一些功能按钮的地方，这些按钮除了系统自带外，还可由用户自定义。</p>
+            <p class="indent28"><b class="text-warning">初始化时如果设置了不要左边工具栏</b> ，则关闭了编辑功能，该组件就变成了一个流程图查看/跟踪器。</p>
+        </div>
+        <div id="elDesign" class="container-fluid" data-title="绘图区元素">
+            <h2 class="text-primary">绘图区元素</h2>
+            <table class="table table-bordered">
+                <tr style="background:#f9f9f9"><th class="text-center">被选中的节点</th><th class="text-center">被选中的边线</th><th class="text-center">被选中的分组泳道</th><th class="text-center">被选中的便笺</th></tr>
+                <tr>
+                    <td class="text-center"><img src="../assets/img/node.png" class="img-responsive center-block"></td>
+                    <td class="text-center"><img src="../assets/img/line.png" class="img-responsive center-block"></td>
+                    <td class="text-center"><img src="../assets/img/area.png" class="img-responsive center-block"></td>
+                    <td class="text-center"><img src="../assets/img/memo.png" class="img-responsive center-block"></td>
+                </tr>
+            </table>
+            <p>结合<b class="text-warning">“界面设计”</b>一节中的完整截图及以上的元素选中样式图例表格，你可以发现：</p>
+            <ul>
+                <li><b class="text-warning">节点</b> 默认为淡蓝色的圆角矩形；若加入了<code>.item_mix</code>类，则显示为绿色；若加入了<code>.item_round</code>类，则显示为圆形。</li>
+                <li><b class="text-warning">节点</b> 一共有双击文字更名、拖动、调整大小、新增、删除的默认功能，可自定义右键单击事件。</li>
+                <li><b class="text-warning">连线</b> 一共有<b>有向实线</b>、<b>有向虚线</b>、<b>无向实线</b>和<b>无向虚线</b>四种(1.3.9新增)，并有直线、中段可上下拖动的折线、中段可左右拖动的折线共三种绘画方式，双击线条可直接编辑线条的文字说明内容，也可手动改变连线的起点或终点。</li>
+                <li><b class="text-warning">分组泳道</b> 需要左下角的开关被按下后才可编辑，有四种随机颜色，点击左上角的圆形图标后可改变颜色，双击文本可直接编辑，也可像节点一样拖动和调整大小。</li>
+                <li><b class="text-warning">便笺</b> 需要左下角的开关被按下后才可编辑，双击中间区域可直接编辑，也可像泳道一样拖动和调整大小。</li>
+
+            </ul>
+        </div>
+    </article>
+</div>
