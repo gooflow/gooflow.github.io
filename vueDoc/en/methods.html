@@ -186,6 +186,17 @@
 
                 <p class="f16">Parameters: <span class="text-gray">(none)</span></p>
             </div>
+            <div id="extend" class="container-fluid" data-title="extend">
+                <h3><span class="text-gray">this.</span>extend() <small>Return: void</small></h3>
+                <p class="indent28">Extension interface for the user to extend (or overwrite) the GooFlow object function interface; these extension methods can access the internal of the GooFlow instance itself through the call to this in the implementation. Kinds of attributes and interfaces.</p>
+                <p class="f16">Parameters: <code>( funcJson )</code></p>
+                <table class="table table-striped table-bordered">
+                    <thead><tr><th>Name</th><th>Type / Format</th><th>Description</th></tr></thead>
+                    <tbody class="text-center">
+                    <tr><td class="text-primary f16">funcJson</td><td>JsonMap</td><td class="text-muted text-left">To expand the method interface defines the map collection, key is the method interface name, and value is the method implementation definition.</td></tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
         <div id="dataMethods" class="container-fluid" data-title="Data Operation">
@@ -710,6 +721,22 @@
                     </tbody>
                 </table>
             </div>
+            <div id="setExtra" class="container-fluid" data-title="setExtra">
+                <h3><span class="text-gray">this.</span>setExtra() <small>Return: void</small></h3>
+                <p class="indent28">Set up flowchart additional information separately, The attribute value of the new information will cover the same name attribute value of the original information.</p>
+                <p class="f16">Parameters: <code>( param )</code></p>
+                <table class="table table-striped table-bordered">
+                    <thead><tr><th>Name</th><th>Type / Format</th><th>Description</th></tr></thead>
+                    <tbody class="text-center">
+                    <tr><td class="text-primary f16">param</td><td>Json Object</td><td class="text-muted text-left">A Json data.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="getExtra" class="container-fluid" data-title="getExtra">
+                <h3><span class="text-gray">this.</span>setExtra() <small>Return: Json Object</small></h3>
+                <p class="indent28">Just get additional information from the flow chart.</p>
+                <p class="f16">Parameters: <code>(none)</code></p>
+            </div>
         </div>
 
         <div id="transMethods" class="container-fluid" data-title="Transaction Control">
@@ -751,34 +778,5 @@
                 <p class="f16">Parameters: <span class="text-gray">(none)</span></p>
             </div>
         </div>
-
-        <div id="staticMethods" class="container-fluid" data-title="Static Method">
-            <h2 class="text-primary">Static Method</h2>
-            <p>These static methods are all public methods, but they all need to be called before initializing a GooFlow instance.</p>
-            <div id="extend" class="container-fluid" data-title="extend">
-                <h3><span class="text-gray">GooFlow.</span>extend() <small>Return: void</small></h3>
-                <p class="indent28">Extension interface for the user to extend (or overwrite) the GooFlow object function interface is very suitable for use in the CMD, AMD development mode; these extension methods can access the internal of the GooFlow instance itself through the call to this in the implementation. Kinds of attributes and interfaces.</p>
-                <p class="f16">Parameters: <code>( funcJson )</code></p>
-                <table class="table table-striped table-bordered">
-                    <thead><tr><th>Name</th><th>Type / Format</th><th>Description</th></tr></thead>
-                    <tbody class="text-center">
-                    <tr><td class="text-primary f16">funcJson</td><td>JsonMap</td><td class="text-muted text-left">To expand the method interface defines the map collection, key is the method interface name, and value is the method implementation definition.</td></tr>
-                    </tbody>
-                </table>
-            </div>
-            <div id="setColors" class="container-fluid" data-title="setColors">
-                <h3><span class="text-gray">GooFlow.</span>setColors() <small>Return: void</small></h3>
-                <p class="indent28">Override Sets the default color definition for GooFlow.</p>
-                <p class="f16">Parameters: <code>( json )</code></p>
-                <table class="table table-striped table-bordered">
-                    <thead><tr><th>Name</th><th>Type / Format</th><th>Description</th></tr></thead>
-                    <tbody class="text-center">
-                    <tr><td class="text-primary f16">json</td><td>JsonMap</td>
-                        <td class="text-muted text-left">The map set of style color defines. For details, see <span class="text-warning">GooFlow.colors</span> of the chapter <a href="#structures">"Data Definition"</a>.</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
     </article>
 </div>
