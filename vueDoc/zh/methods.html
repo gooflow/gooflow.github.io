@@ -179,6 +179,18 @@
                 <p class="indent28">要调用该方法，需扩展引入<span class="text-danger">navmap.js</span>文件。</p>
                 <p class="f16">传参：<span class="text-gray">(无)</span></p>
             </div>
+            <div id="extend" class="container-fluid" data-title="extend">
+                <h3><span class="text-gray">this.</span>extend() <small>返回值：void</small></h3>
+                <p class="indent28">给用户自行扩展(或重写)GooFlow对象功能接口的扩展用接口；这些扩展方法能在实现中通过对this的调用，就能访问GooFlow实例本身内部各种属性和接口了。</p>
+                <p class="f16">传参：<code>( funcJson )</code></p>
+                <table class="table table-striped table-bordered">
+                    <thead><tr><th>名称</th><th>类型/格式</th><th>描述</th></tr></thead>
+                    <tbody class="text-center">
+                    <tr><td class="text-primary f16">funcJson</td><td>JsonMap</td><td class="text-muted text-left">要扩展出的方法接口定义map集合,key为方法接口名，value为方法实现定义。</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
         </div>
 
         <div id="dataMethods" class="container-fluid" data-title="数据操作接口">
@@ -698,6 +710,22 @@
                     </tbody>
                 </table>
             </div>
+            <div id="setExtra" class="container-fluid" data-title="setExtra">
+                <h3><span class="text-gray">this.</span>setExtra() <small>返回值：void</small></h3>
+                <p class="indent28">单独设置流程图的附加信息，新信息的属性值会覆盖原有信息的同名属性值。</p>
+                <p class="f16">传参：<code>( param )</code></p>
+                <table class="table table-striped table-bordered">
+                    <thead><tr><th>名称</th><th>类型/格式</th><th>描述</th></tr></thead>
+                    <tbody class="text-center">
+                    <tr><td class="text-primary f16">param</td><td>Json Object</td><td class="text-muted text-left">一个Json数据。</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="getExtra" class="container-fluid" data-title="getExtra">
+                <h3><span class="text-gray">this.</span>setExtra() <small>返回值：Json Object</small></h3>
+                <p class="indent28">单独获取流程图的附加信息</p>
+                <p class="f16">传参：<code>(无)</code></p>
+            </div>
         </div>
 
         <div id="transMethods" class="container-fluid" data-title="事务控制接口">
@@ -739,34 +767,5 @@
                 <p class="f16">传参：<span class="text-gray">(无)</span></p>
             </div>
         </div>
-
-        <div id="staticMethods" class="container-fluid" data-title="类静态方法接口">
-            <h2 class="text-primary">类静态方法接口</h2>
-            <p>这些静态方法都属于公用方法，但都需要在初始化一个GooFlow实例之前调用。</p>
-            <div id="extend" class="container-fluid" data-title="extend">
-                <h3><span class="text-gray">GooFlow.</span>extend() <small>返回值：void</small></h3>
-                <p class="indent28">给用户自行扩展(或重写)GooFlow对象功能接口的扩展用接口，很适合用在CMD、AMD开发模式上；这些扩展方法能在实现中通过对this的调用，就能访问GooFlow实例本身内部各种属性和接口了。</p>
-                <p class="f16">传参：<code>( funcJson )</code></p>
-                <table class="table table-striped table-bordered">
-                    <thead><tr><th>名称</th><th>类型/格式</th><th>描述</th></tr></thead>
-                    <tbody class="text-center">
-                    <tr><td class="text-primary f16">funcJson</td><td>JsonMap</td><td class="text-muted text-left">要扩展出的方法接口定义map集合,key为方法接口名，value为方法实现定义。</td></tr>
-                    </tbody>
-                </table>
-            </div>
-            <div id="setColors" class="container-fluid" data-title="setColors">
-                <h3><span class="text-gray">GooFlow.</span>setColors() <small>返回值：void</small></h3>
-                <p class="indent28">覆盖设定GooFlow默认的颜色定义。</p>
-                <p class="f16">传参：<code>( json )</code></p>
-                <table class="table table-striped table-bordered">
-                    <thead><tr><th>名称</th><th>类型/格式</th><th>描述</th></tr></thead>
-                    <tbody class="text-center">
-                    <tr><td class="text-primary f16">json</td><td>JsonMap</td>
-                        <td class="text-muted text-left">样式颜色定义Map集，详见<a href="#structures">“数据结构定义”</a>章节中的<span class="text-warning">GooFlow.colors</span>。</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
     </article>
 </div>
