@@ -1,0 +1,106 @@
+<div class="main-frame" data-title="个性化扩展" id="article_extension">
+    <article class="main-container">
+        <div class="page-header"><h1>个性化扩展</h1></div>
+        本章节的功能点，之前章节均虽已提到过，但需再次拿出来以介绍实用的技巧。
+
+        <div id="defaultLibs" class="container-fluid" data-title="自带的功能扩展库">
+            <h2 class="text-primary">自带的功能扩展库</h2>
+            <p>除了GooFlow.js组件主文件，目前GooFlow组件还自带了以下扩展库文件（<code>extends</code>子目录下），以实现一些高级的方法功能：</p>
+            <ol>
+                <li><b>group.js</b>: 实现对分组泳道的展示与支持。</li>
+                <li><b>xml.js</b>: 实现对Bpmn2.0规范的XML格式的流程图数据支持。</li>
+                <li><b>export.js</b>: 实现流程图数据以文件方法导出并下载的功能（导出XML文件时，需要再引入xml.js）。</li>
+                <li><b>print.js</b>: 实现流程图另存为PDF或打印输出功能。</li>
+                <li><b>memo.js</b>: 实现对便笺元素的展示与支持。</li>
+                <li><b>multi.js</b>: 实现对多选操作及批量移动/删除多个元素支持。</li>
+                <li><b>navmap.js</b>: 实现实时定位滚动的缩略导航图功能。</li>
+                <li><b>autoalign.js</b>: 实现移动块元素时自动显示对齐辅助线并自动对齐的功能。</li>
+                <li><b>dragadd.js</b>: 实现对通过拖拽来添加块状态元素的操作方式的支持。</li>
+            </ol>
+        </div>
+
+        <div id="skin" class="container-fluid" data-title="个性化皮肤">
+            <h2 class="text-primary">个性化皮肤</h2>
+            <p>担心GooFlow原生皮肤不适合项目系统UI样式？那就重设置吧。这里提供几种方法：</p>
+            <ol>
+                <li>参考实例中的 <code>global.js</code> 配置文件内容自定义样式，然后将这json数据作为GooFlow组件标签中的global传参传入组件中。</li>
+                <li>终极大法：直接修改GooFlow.css源码，然后重新<code> npm run build </code>！</li>
+            </ol>
+        </div>
+
+        <div id="interface" class="container-fluid" data-title="扩展方法接口">
+            <h2 class="text-primary">扩展方法接口</h2>
+            <p>嫌GooFlow实例提供的功能接口不够多？那就扩展新的功能接口吧！</p>
+            <p>使用<code>GooFlow.extend</code>方法扩展GooFlow类的功能，只要按以下定义一组新接口方法的Map集：
+            </p>
+            <pre><code class="language-javascript">const myFunctions = {
+    'funcName1':function(arg1){ /*具体方法实现*/ },
+    'funcName2':function(arg1,arg2){ /*具体方法实现*/ },
+    'funcName3':function(){ /*具体方法实现*/ },
+                ……
+};
+this.gooflow.extend( myFunctions );</code></pre>
+            <p>那么GooFlow实例就可以调用这些新方法了。但是要注意：<span class="text-warning">如果定义的方法Map集中有方法名称与原有的方法重名，将会覆盖掉原方法的实现哦！</span></p>
+            <pre><code class="language-javascript">
+const instance = this.gooflow;
+instance.funcName1(arg1);
+instance.funcName2(arg1,arg2);
+……</code></pre>
+            <blockquote><small>顺便说一下，这些自定义方法的内部实现，同样可以通过<code>this</code>来访问GooFlow实例本身。</small></blockquote>
+        </div>
+
+        <div id="addIcon" class="container-fluid" data-title="新的节点类型图标">
+            <h2 class="text-primary">新的节点类型图标</h2>
+            <p>觉得GooFlow自带的矢量图标不够用？那就自行扩展吧！</p>
+            <p>不管你是使用Css sprite还是新的矢量字体图标，都能同时支持哦！</p>
+            <p>改造步骤：</p>
+            <ol>
+                <li>定义好你的新节点类型名称，如<code>'mylove'</code>。</li>
+                <li>在GooFlow.css或者其它设计器所在页面将会引入的css文件中，定义一个新样式类：
+                    <pre><code class="language-css">    .GooFlow .ico_mylove{ background:…… } /* Css sprite的写法 */
+    .GooFlow .ico_mylove:before{ content:'……' } /* 矢量字体图标的写法 */</code></pre>
+                </li>
+
+                <li>在页面的业务js文件中，当初始化GooFlow实例时，参数设置中的toolBtns数组就可以加上新节点类型名了。
+                    <pre><code class="language-javascript">const options = {
+    toolBtns:[
+        'start',
+        'end',
+        'task',
+        'mylove',
+    ],
+    haveTool:true,
+    ……
+};</code></pre></li>
+                <li>浏览器打开相关页面，可看到设计器左侧工具栏上多出了自己定义的节点按钮；赶快点击新增一个新类型节点试试吧！</li>
+            </ol>
+            <blockquote><small>注意：如果你既要用Css sprite，又要用导出流程图片文件的方法，请务必确保css sprite方式定义的各节点图标全都只来自同一个背景图片文件！</small></blockquote>
+        </div>
+
+        <div id="shapeIcon" class="container-fluid" data-title="新的节点形状">
+            <h2 class="text-primary">新的节点形状</h2>
+            <p>觉得GooFlow自带的节点不够专业？那就使用新的形状吧！</p>
+            <p>GooFlow支持椭圆、菱形、平行四边形、胶囊形4种节点形状。用户能更好地表现流程图的意义。</p>
+            <p>使用方法：初始化时在传参options中，给toolBtns数组单元定义里直接加上后缀，扩展定义节点样式类。</p>
+            <p>如同浸染一个圆形节点时使用<code>原有类型+" round"</code>方式一样，GooFlow目前支持以下几种形状</p>
+            <table class="table table-bordered">
+                <thead><tr style="background:#f9f9f9">
+                    <th class="text-center">&nbsp;</th><th class="text-center">圆形</th><th class="text-center">椭圆</th>
+                    <th class="text-center">菱形</th><th class="text-center">平行四边形</th><th class="text-center">胶囊形</th>
+                </tr></thead>
+                <tbody>
+                    <tr><td class="text-center">截图</td>
+                        <td class="text-center"><img src="../assets/img/spnode1.png" class="img-responsive center-block"></td>
+                        <td class="text-center"><img src="../assets/img/spnode2.png" class="img-responsive center-block"></td>
+                        <td class="text-center"><img src="../assets/img/spnode3.png" class="img-responsive center-block"></td>
+                        <td class="text-center"><img src="../assets/img/spnode4.png" class="img-responsive center-block"></td>
+                        <td class="text-center"><img src="../assets/img/spnode5.png" class="img-responsive center-block"></td>
+                    </tr>
+                    <tr><td class="text-center">写法</td><td><code>原有类型+" round"</code></td><td><code>原有类型+" ellipse"</code></td>
+                        <td><code>原有类型+" rhomb"</code></td><td><code>原有类型+" parallelogram"</code></td><td><code>原有类型+" capsule"</code></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+    </article>
+</div>

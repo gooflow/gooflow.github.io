@@ -1,0 +1,107 @@
+<div class="main-frame" data-title="Customize Extend" id="article_extension">
+    <article class="main-container">
+        <div class="page-header"><h1>Customize Extend</h1></div>
+        The functional points of this chapter, although mentioned in previous chapters, need to be presented again to introduce practical skills.
+
+        <div id="defaultLibs" class="container-fluid" data-title="Extension Library">
+            <h2 class="text-primary">Extension Library</h2>
+            <p>In addition to the GooFlow.js main program file, GooFlow component also comes with the following extension library files (in the <code>extends</code> directory) to achieve some advanced method functions:</p>
+            <ol>
+                <li><b>group.js</b>: Realize the display and support of the group lanes.</li>
+                <li><b>xml.js</b>:  Implements flowchart data support for the XML format of the Bpmn 2.0 specification.</li>
+                <li><b>export.js</b>: Implements functions to export and download the flowchart data as a file (xml.js needs to be imported when exporting a XML file).</li>
+                <li><b>print.js</b>: Implements functions of the flowchart to save as a PDF or print out.</li>
+                <li><b>memo.js</b>: Realize the display and support of the memo elements.</li>
+                <li><b>multi.js</b>: Support for multi-select operations and batch move/delete multiple elements.</li>
+                <li><b>navmap.js</b>: Support a thumbnail navigation feature that enables real-time positioning scrolling.</li>
+                <li><b>autoalign.js</b>: The ability to automatically display alignment guides and automatically align when moving block elements.</li>
+                <li><b>dragadd.js</b>: Support for the operation of adding block state elements by dragging and dropping.</li>
+            </ol>
+        </div>
+
+        <div id="skin" class="container-fluid" data-title="Personalized Skin">
+            <h2 class="text-primary">Personalized Skin</h2>
+            <p>Concerned that GooFlow native skin is not suitable for project system UI style? Then set it again. Here are a few ways to do it:</p>
+            <ol>
+                <li>Refer to the <code>global.js</code> configuration file content custom style in the example, and then pass the json data as a global pass parameter in the GooFlow component tag to the component.</li>
+                <li>The ultimate method: directly modify GooFlow.css's source code, and then <code> npm run build </code> again!</li>
+            </ol>
+        </div>
+
+        <div id="interface" class="container-fluid" data-title="Extending Methods">
+            <h2 class="text-primary">Extending Methods</h2>
+            <p>The function interface provided by the GooFlow instance is not enough? Then extend the new functional interface!</p>
+            <p>Use <code>GooFlow.extend</code>methods to extend the functionality of the GooFlow class,static methods to extend the functionality of the GooFlow class:
+            </p>
+            <pre><code class="language-javascript">const myFunctions = {
+    'funcName1':function(arg1){ /* Concrete method realization */ },
+    'funcName2':function(arg1,arg2){ /* Concrete method realization */ },
+    'funcName3':function(){ /* Concrete method realization */ },
+                ……
+};
+this.gooflow.extend( myFunctions );</code></pre>
+            <p>Then the GooFlow instance can call these new methods. However, it should be noted that <span class="text-warning">if the method definition has a method name which is she same as a original method name, it will override the original method implementation!</span></p>
+            <pre><code class="language-javascript">
+const instance = this.gooflow;
+instance.funcName1(arg1);
+instance.funcName2(arg1,arg2);
+……</code></pre>
+            <blockquote><small>By the way, the internal implementation of these custom methods can also be used <code>this</code>to access the GooFlow instance itself.</small></blockquote>
+        </div>
+
+        <div id="addIcon" class="container-fluid" data-title="Node Type Icon">
+            <h2 class="text-primary">Node Type Icon</h2>
+            <p>Think GooFlow's own vector icons are not enough? Then expand it yourself!</p>
+            <p>Whether you use a css-sprite or a new vector-fonts icon, you can support both!</p>
+            <p>Modification steps:</p>
+            <ol>
+                <li>Define your new node type name, for example <code>'mylove'</code>.</li>
+                <li>In the css file that will be introduced in the GooFlow.css or other css files, define a new style class:
+                    <pre><code class="language-css">    .GooFlow .ico_mylove{ background:…… } /* Css sprite */
+    .GooFlow .ico_mylove:before{ content:'……' } /* vector-fonts */</code></pre>
+                </li>
+
+                <li>In the business js file of the page, when the GooFlow instance is initialized, the toolBtns array in the parameter setting can be added with the new node type name.
+                    <pre><code class="language-javascript">const options = {
+    toolBtns:[
+        'start',
+        'end',
+        'task',
+        'mylove',
+    ],
+    haveTool:true,
+    ……
+};</code></pre></li>
+                <li>The browser opens the relevant page, and you can see that there are more node buttons defined on the toolbar on the left side of the designer; click on a new type node to try it out!</li>
+            </ol>
+            <blockquote><small>Note: If you want to use both the Css sprite and the export process image file, make sure that the node icons defined in the css sprite mode all come from the same background image file!</small></blockquote>
+        </div>
+
+
+        <div id="shapeIcon" class="container-fluid" data-title="New Node Shape">
+            <h2 class="text-primary">New Node Shape</h2>
+            <p>Think GooFlow's own node is not professional enough? Then use the new shape!</p>
+            <p>GooFlow has supported for oval, diamond, parallelogram, and capsule shapes. Users can better represent the meaning of the flowchart.</p>
+            <p>Usage: In the initialization parameter, pass the parameter to the toolBtns array element directly to add the suffix and extend the definition node style class.</p>
+            <p>GooFlow currently supports the following shapes, just as it does for a circular node with <code>nodeType+" round"</code>.</p>
+            <table class="table table-bordered">
+                <thead><tr style="background:#f9f9f9">
+                    <th class="text-center">&nbsp;</th><th class="text-center">Circular</th><th class="text-center">Ellipse</th>
+                    <th class="text-center">Diamond</th><th class="text-center">Parallelogram</th><th class="text-center">Capsule</th>
+                </tr></thead>
+                <tbody>
+                <tr><td class="text-center">Screenshots</td>
+                    <td class="text-center"><img src="../assets/img/spnode1.png" class="img-responsive center-block"></td>
+                    <td class="text-center"><img src="../assets/img/spnode2.png" class="img-responsive center-block"></td>
+                    <td class="text-center"><img src="../assets/img/spnode3.png" class="img-responsive center-block"></td>
+                    <td class="text-center"><img src="../assets/img/spnode4.png" class="img-responsive center-block"></td>
+                    <td class="text-center"><img src="../assets/img/spnode5.png" class="img-responsive center-block"></td>
+                </tr>
+                <tr><td class="text-center">Grammar</td><td><code>nodeType+" round"</code></td><td><code>nodeType+" ellipse"</code></td>
+                    <td><code>nodeType+" rhomb"</code></td><td><code>nodeType+" parallelogram"</code></td><td><code>nodeType+" capsule"</code></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+    </article>
+</div>
