@@ -287,6 +287,18 @@
                     </tbody>
                 </table>
             </div>
+            <div id="setLineStyle" class="container-fluid" data-title="setLineStyle">
+                <h3><span class="text-gray">this.</span>setLineStyle() <small>返回值：void</small></h3>
+                <p class="indent28">重新设置连线的显示风格。</p>
+                <p class="f16">传参：<code>( id, newStyle )</code></p>
+                <table class="table table-striped table-bordered">
+                    <thead><tr><th>名称</th><th>类型/格式</th><th>描述</th></tr></thead>
+                    <tbody class="text-center">
+                    <tr><td class="text-primary f16">id</td><td>String</td><td class="text-muted text-left">要操作连线的id。</td></tr>
+                    <tr><td class="text-primary f16">newStyle</td><td>String</td><td class="text-muted text-left">连线的新显示风格。取值有四种：<code>'direct'</code>有向实线；<code>'dirDashed'</code>有向虚线；<code>'segment'</code>无向实线；<code>'segDashed'</code>无向虚线。</td></tr>
+                    </tbody>
+                </table>
+            </div>
             <div id="setLineType" class="container-fluid" data-title="setLineType">
                 <h3><span class="text-gray">this.</span>setLineType() <small>返回值：void</small></h3>
                 <p class="indent28">重新设置连线的类型。</p>
@@ -295,7 +307,7 @@
                     <thead><tr><th>名称</th><th>类型/格式</th><th>描述</th></tr></thead>
                     <tbody class="text-center">
                     <tr><td class="text-primary f16">id</td><td>String</td><td class="text-muted text-left">要操作连线的id。</td></tr>
-                    <tr><td class="text-primary f16">newType</td><td>String</td><td class="text-muted text-left">连线的新类型。取值有三种：<code>'sl'</code>直线；<code>'lr'</code>中段可左右移动的折线'；<code>'tb'</code>中段可上下移动的折线有直线。</td></tr>
+                    <tr><td class="text-primary f16">newType</td><td>String</td><td class="text-muted text-left">连线的新类型。取值有三种：<code>'sl'</code>直线；<code>'lr'</code>中段可左右移动的折线；<code>'tb'</code>中段可上下移动的折线有直线。</td></tr>
                     <tr><td class="text-primary f16">M</td><td>Number</td><td class="text-muted text-left">
                         一种抽象值，单位为像素。<br>当<code>type='lr'</code>时为必填项，表示中段线相对于工作区的X坐标值；<br>
                         当<code>type='tb'</code>时为必填项，表示中段线相对于工作区的Y坐标值。<br>当<code>type='sl'</code>时无任何意义。</td></tr>
