@@ -83,8 +83,12 @@
                     <tr><td class="text-primary f16">from</td><td>String</td><td class="text-gray">(undefiend)</td><td class="text-muted text-left">Required, the starting node id of the line.</td></tr>
                     <tr><td class="text-primary f16">to</td><td>String</td><td class="text-gray">(undefiend)</td><td class="text-muted text-left">Required, the target id of the line.</td></tr>
                     <tr><td class="text-primary f16">type</td><td>String</td><td class="text-gray">sl</td><td class="text-muted text-left">There are three types of line types: <code>'sl'</code>straight lines, <code>'lr'</code> folding lines that can be moved left and right in the <code>'tb'</code> middle section, and folding lines that can move up and down in the middle section.</td></tr>
-                    <tr><td class="text-primary f16">M</td><td>Number</td><td class="text-gray">(undefiend)</td><td class="text-muted text-left">An abstract value in pixels.<br>When <code>type='lr'</code> the time is required, the middle line indicates the X-coordinate values with respect to a work area; <br>
-                        if <code>type='tb'</code> time is required, the middle line indicates the Y-coordinate values with respect to the work area. <br>When <code>type='sl'</code> the absence of any significance.</td></tr>
+                    <tr><td class="text-primary f16">M</td><td>Number</td><td class="text-gray">(undefiend)</td><td class="text-muted text-left">An abstract value in pixels.<br>When <code>type='lr'</code> the time is required, it indicates the X coordinate value of the second midline of the polyline relative to the work area; <br>
+                        if <code>type='tb'</code> time is required, it indicates the X coordinate value of the second midline of the polyline relative to the work area. <br>When <code>type='sl'</code> the absence of any significance.</td></tr>
+                    <tr><td class="text-primary f16">M</td><td>Number</td><td class="text-gray">(undefiend)</td><td class="text-muted text-left">An abstract value in pixels.<br>When <code>type='tb'</code> the time is required, it indicates the X coordinate value of the first midline of the polyline relative to the work area; <br>
+                        if <code>type='lr'</code> time is required, it indicates the X coordinate value of the first midline of the polyline relative to the work area. <br>When <code>type='sl'</code> the absence of any significance.</td></tr>
+                    <tr><td class="text-primary f16">M</td><td>Number</td><td class="text-gray">(undefiend)</td><td class="text-muted text-left">An abstract value in pixels.<br>When <code>type='tb'</code> the time is required, it indicates the X coordinate value of the third midline of the polyline relative to the work area; <br>
+                        if <code>type='lr'</code> time is required, it indicates the X coordinate value of the third midline of the polyline relative to the work area. <br>When <code>type='sl'</code> the absence of any significance.</td></tr>
                     <tr><td class="text-primary f16">marked</td><td>Boolean</td><td class="text-gray">(undefined)</td><td class="text-muted text-left">Whether the line has been marked.</td></tr>
                     <tr><td class="text-primary f16">alt</td><td>Boolean</td><td class="text-gray">(undefined)</td><td class="text-muted text-left">Whether the line was edited by the user in edit mode.</td></tr>
                     <tr><td class="text-primary f16">dash</td><td>Boolean</td><td class="text-gray">(undefined)</td><td class="text-muted text-left">Whether the dash pattern, as is <code>undefined</code> when the solid line represents the default.</td></tr>
@@ -177,8 +181,8 @@
             <div id="defNodeType" class="container-fluid" data-title="Node Definition">
                 <h3>Node Definition</h3>
                 <p>The user can customize the new type, or override the css style of the native own type. However, you cannot name the new node Type with the following keywords:</p>
-                <p class="f16"><code>'cursor'</code>, <code>'multi'</code>, <code>'direct'</code>, <code>'dirDashed'</code>, <code>'segment'</code> and <code>'segDashed'</code></p>
-                <p>These keywords are represented in the toolbar: <b>cursor button</b>, <b>multi-select button</b>, <b>directional solid line button</b>, <b>directional dotted line button</b>
+                <p class="f16"><code>'cursor'</code>, <code>'direct'</code>, <code>'dirDashed'</code>, <code>'segment'</code> and <code>'segDashed'</code></p>
+                <p>These keywords are represented in the toolbar: <b>cursor button</b>, <b>directional solid line button</b>, <b>directional dotted line button</b>
                     , <b>solid segment button</b> and <b>dotted segment button</b>.</p>
             </div>
             <div id="defToolTip" class="container-fluid" data-title="Toolbar Description">

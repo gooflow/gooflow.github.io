@@ -175,12 +175,13 @@
             <div id="onLineMove" class="container-fluid" data-title="onLineMove">
                 <h3><span class="text-gray">this.</span>onLineMove() <small>返回值：boolean</small></h3>
                 <p class="indent28">当移动某条折线中段的位置时，触发的方法。</p>
-                <p class="f16">传参：<code>( id, M )</code></p>
+                <p class="f16">传参：<code>( id, M, sort )</code></p>
                 <table class="table table-striped table-bordered">
                     <thead><tr><th>名称</th><th>类型/格式</th><th>描述</th></tr></thead>
                     <tbody class="text-center">
                     <tr><td class="text-primary f16">id</td><td>String</td><td class="text-muted text-left">连线的id，唯一标识。</td></tr>
                     <tr><td class="text-primary f16">M</td><td>Number</td><td class="text-muted text-left">折线中段的新X坐标（当<code>type='lr'</code>时）或者新y坐标（当<code>type='tb'</code>时），单位像素。</td></tr>
+                    <tr><td class="text-primary f16">M</td><td>Number</td><td class="text-muted text-left">能被移动的折线中线段的排序，先后依次取值为'Ml','M','Mr',默认不填时为'M'。</td></tr>
                     </tbody>
                 </table>
             </div>

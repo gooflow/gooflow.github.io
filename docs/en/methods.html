@@ -322,7 +322,7 @@
             </div>
             <div id="setLineM" class="container-fluid" data-title="setLineM">
                 <h3><span class="text-gray">this.</span>setLineM() <small>Return: void</small></h3>
-                <p class="indent28">Sets the X coordinate of the midline of the polyline (when moving left or right) or Y coordinate (when moving up and down); the straight line does not support this method.</p>
+                <p class="indent28">Sets the X coordinate of the second midline of the polyline (when moving left or right) or Y coordinate (when moving up and down); the straight line does not support this method.</p>
                 <p class="f16">Parameters: <code>( id, M )</code></p>
                 <table class="table table-striped table-bordered">
                     <thead><tr><th>Name</th><th>Type / Format</th><th>Description</th></tr></thead>
@@ -330,6 +330,32 @@
                     <tr><td class="text-primary f16">id</td><td>String</td><td class="text-muted text-left">To operate the line id.</td></tr>
                     <tr><td class="text-primary f16">M</td><td>Number</td><td class="text-muted text-left">The new M value. When <code>type='lr'</code>the time line in the middle represents the X coordinate value with respect to the work area;
                         when <code>type='tb'</code> expressed with respect to the middle line Y-coordinate value of the operating time zone.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="setLineMl" class="container-fluid" data-title="setLineMl">
+                <h3><span class="text-gray">this.</span>setLineMl() <small>Return: void</small></h3>
+                <p class="indent28">Sets the X coordinate of the first midline of the polyline (when moving left or right) or Y coordinate (when moving up and down); the straight line does not support this method.</p>
+                <p class="f16">Parameters: <code>( id, M )</code></p>
+                <table class="table table-striped table-bordered">
+                    <thead><tr><th>Name</th><th>Type / Format</th><th>Description</th></tr></thead>
+                    <tbody class="text-center">
+                    <tr><td class="text-primary f16">id</td><td>String</td><td class="text-muted text-left">To operate the line id.</td></tr>
+                    <tr><td class="text-primary f16">M</td><td>Number</td><td class="text-muted text-left">The new M value. When <code>type='tb'</code>the time line in the middle represents the X coordinate value with respect to the work area;
+                        when <code>type='lr'</code> expressed with respect to the middle line Y-coordinate value of the operating time zone.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="setLineMr" class="container-fluid" data-title="setLineMr">
+                <h3><span class="text-gray">this.</span>setLineMr() <small>Return: void</small></h3>
+                <p class="indent28">Sets the X coordinate of the third midline of the polyline (when moving left or right) or Y coordinate (when moving up and down); the straight line does not support this method.</p>
+                <p class="f16">Parameters: <code>( id, M )</code></p>
+                <table class="table table-striped table-bordered">
+                    <thead><tr><th>Name</th><th>Type / Format</th><th>Description</th></tr></thead>
+                    <tbody class="text-center">
+                    <tr><td class="text-primary f16">id</td><td>String</td><td class="text-muted text-left">To operate the line id.</td></tr>
+                    <tr><td class="text-primary f16">M</td><td>Number</td><td class="text-muted text-left">The new M value. When <code>type='tb'</code>the time line in the middle represents the X coordinate value with respect to the work area;
+                        when <code>type='lr'</code> expressed with respect to the middle line Y-coordinate value of the operating time zone.</td></tr>
                     </tbody>
                 </table>
             </div>

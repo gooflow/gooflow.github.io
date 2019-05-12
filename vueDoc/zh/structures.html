@@ -83,8 +83,12 @@
                     <tr><td class="text-primary f16">from</td><td>String</td><td class="text-gray">(undefiend)</td><td class="text-muted text-left">必填项，连线的起始节点id。</td></tr>
                     <tr><td class="text-primary f16">to</td><td>String</td><td class="text-gray">(undefiend)</td><td class="text-muted text-left">必填项，连线的目标节点id。</td></tr>
                     <tr><td class="text-primary f16">type</td><td>String</td><td class="text-gray">sl</td><td class="text-muted text-left">连线类型，取值有三种：<code>'sl'</code>直线；<code>'lr'</code>中段可左右移动的折线'；<code>'tb'</code>中段可上下移动的折线。</td></tr>
-                    <tr><td class="text-primary f16">M</td><td>Number</td><td class="text-gray">(undefiend)</td><td class="text-muted text-left">一种抽象值，单位为像素。<br>当<code>type='lr'</code>时为必填项，表示中段线相对于工作区的X坐标值；<br>
-                        当<code>type='tb'</code>时为必填项，表示中段线相对于工作区的Y坐标值。<br>当<code>type='sl'</code>时无任何意义。</td></tr>
+                    <tr><td class="text-primary f16">M</td><td>Number</td><td class="text-gray">(undefiend)</td><td class="text-muted text-left">一种抽象值，单位为像素。<br>当<code>type='lr'</code>时为必填项，表示折线第二条中段线相对于工作区的X坐标值；<br>
+                        当<code>type='tb'</code>时为必填项，表示折线第二条中段线相对于工作区的Y坐标值。<br>当<code>type='sl'</code>时无任何意义。</td></tr>
+                    <tr><td class="text-primary f16">Ml</td><td>Number</td><td class="text-gray">(undefiend)</td><td class="text-muted text-left">一种抽象值，单位为像素。<br>当<code>type='tb'</code>时为必填项，表示折线第一条中段线相对于工作区的X坐标值；<br>
+                        当<code>type='lr'</code>时为必填项，表示折线第一条中段线相对于工作区的Y坐标值。<br>当<code>type='sl'</code>时无任何意义。</td></tr>
+                    <tr><td class="text-primary f16">Mr</td><td>Number</td><td class="text-gray">(undefiend)</td><td class="text-muted text-left">一种抽象值，单位为像素。<br>当<code>type='tb'</code>时为必填项，表示折线第三条中段线相对于工作区的X坐标值；<br>
+                        当<code>type='lr'</code>时为必填项，表示折线第三条中段线相对于工作区的Y坐标值。<br>当<code>type='sl'</code>时无任何意义。</td></tr>
                     <tr><td class="text-primary f16">marked</td><td>Boolean</td><td class="text-gray">(undefined)</td><td class="text-muted text-left">连线是否已被标注。</td></tr>
                     <tr><td class="text-primary f16">alt</td><td>Boolean</td><td class="text-gray">(undefined)</td><td class="text-muted text-left">在编辑模式下连线是否被用户编辑过。</td></tr>
                     <tr><td class="text-primary f16">dash</td><td>Boolean</td><td class="text-gray">(undefined)</td><td class="text-muted text-left">是否为虚线样式，当为<code>undefined</code>时表示默认实线。</td></tr>
@@ -189,8 +193,8 @@
             <div id="defNodeType" class="container-fluid" data-title="节点定义类型">
                 <h3>节点定义类型</h3>
                 <p>用户可自定义新类型，也可覆盖原生自带类型的css样式。但切不可用以下关键字命名新节点类型：</p>
-                <p class="f16"><code>'cursor'</code>、<code>'multi'</code>、<code>'direct'</code>、<code>'dirDashed'</code>、<code>'segment'</code>、<code>'segDashed'</code></p>
-                <p>这几个关键字在工具栏中分别表示：<b>指针按钮</b>、<b>多选按钮</b>、<b>有向实线按钮</b>、<b>有向虚线按钮</b>、<b>无向实线按钮</b>、<b>无向虚线按钮</b>。</p>
+                <p class="f16"><code>'cursor'</code>、<code>'direct'</code>、<code>'dirDashed'</code>、<code>'segment'</code>、<code>'segDashed'</code></p>
+                <p>这几个关键字在工具栏中分别表示：<b>指针按钮</b>、<b>有向实线按钮</b>、<b>有向虚线按钮</b>、<b>无向实线按钮</b>、<b>无向虚线按钮</b>。</p>
             </div>
             <div id="defToolTip" class="container-fluid" data-title="工具栏文字说明">
                 <h3>工具栏文字说明</h3>
