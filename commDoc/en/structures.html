@@ -181,9 +181,9 @@
             <div id="defNodeType" class="container-fluid" data-title="Node Definition">
                 <h3>Node Definition</h3>
                 <p>The user can customize the new type, or override the css style of the native own type. However, you cannot name the new node Type with the following keywords:</p>
-                <p class="f16"><code>'cursor'</code>, <code>'direct'</code>, <code>'dirDashed'</code>, <code>'segment'</code> and <code>'segDashed'</code></p>
+                <p class="f16"><code>'cursor'</code>, <code>'direct'</code>, <code>'dirDashed'</code>, <code>'segment'</code>, <code>'segDashed'</code>, <code>'group'</code> and <code>'memo'</code></p>
                 <p>These keywords are represented in the toolbar: <b>cursor button</b>, <b>directional solid line button</b>, <b>directional dotted line button</b>
-                    , <b>solid segment button</b> and <b>dotted segment button</b>.</p>
+                    , <b>solid segment button</b>, <b>dotted segment button</b>, <b>swimlane editing switch</b> and <b>memos editing switch</b>.</p>
             </div>
             <div id="defToolTip" class="container-fluid" data-title="Toolbar Description">
                 <h3>Toolbar Description</h3>
@@ -191,7 +191,6 @@
                     in addition to the node type buttons, the description text definitions of several other buttons need to be set with a key through several keywords. as follows:</p>
                 <pre><code class="language-javascript">GooFlow.remarks.toolBtns = {
     cursor : "cursor button's tips",
-    multi : "multi-select button's tips",
     direct : "directional solid line button's tips",
     dirDashed : "directional dotted linebutton's tips",
     segment : "solid segment button's tips",

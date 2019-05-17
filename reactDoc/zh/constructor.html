@@ -54,6 +54,7 @@ class DemoExport extends React.Component{
                 <tr><td class="text-primary f16">nodeCustoms</td><td>JsonMap</td><td class="text-gray">{}</td><td class="text-muted text-left">对于某些特殊的节点类型采取只使用自定义背景图展示的映射配置。<br>其定义详见<a href="#structures">“数据结构定义”</a>章节中的<code>NodeCustoms</code></td></tr>
                 <tr><td class="text-primary f16">headBtnEvents</td><td>JsonMap</td><td class="text-gray">(undefined)</td><td class="text-muted text-left">对头部栏另行自定义类型按钮的事件绑定map集合,key为按钮类型名，value为方法实现定义</td></tr>
                 <tr><td class="text-primary f16">haveMulti</td><td>Boolean</td><td class="text-gray">false</td><td class="text-muted text-left">是否开启对多个节点/连线元素进行选择，并进行批量移动或删除，或者批量添加多个节点/连线元素的功能。默认关闭。（从1.3.9开始）</td></tr>
+                <tr><td class="text-primary f16">multiKey</td><td>String</td><td class="text-gray">shift</td><td class="text-muted text-left">鼠标点击选择流程图中某个元素时，同时按住哪种功能键可实现多选。有<code>shift</code>、<code>ctrl</code>两个取值，默认为shift键。</td></tr>
                 </tbody>
             </table>
             <h3>global <small>类型：Json Object</small></h3>

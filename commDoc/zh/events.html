@@ -82,38 +82,38 @@
             </div>
             <div id="onItemDbClick" class="container-fluid" data-title="onItemDbClick">
                 <h3><span class="text-gray">this.</span>onItemDbClick() <small>返回值：boolean</small></h3>
-                <p class="indent28">当操作某个元素（节点/连线/分组泳道）被双击时，触发的方法。</p>
+                <p class="indent28">当操作某个元素（节点/连线/分组泳道/便笺）被双击时，触发的方法。</p>
                 <p class="f16">传参：<code>( id, type )</code></p>
                 <table class="table table-striped table-bordered">
                     <thead><tr><th>名称</th><th>类型/格式</th><th>描述</th></tr></thead>
                     <tbody class="text-center">
                     <tr><td class="text-primary f16">id</td><td>String</td><td class="text-muted text-left">元素的id，唯一标识。</td></tr>
-                    <tr><td class="text-primary f16">type</td><td>String</td><td class="text-muted text-left">元素的种类，有<code>'node'</code>节点、<code>'line'</code>连线、<code>'area'</code>分组泳道三种。</td></tr>
+                    <tr><td class="text-primary f16">type</td><td>String</td><td class="text-muted text-left">元素的种类，有<code>'node'</code>节点、<code>'line'</code>连线、<code>'area'</code>分组泳道、<code>'memo'</code>便笺四种。</td></tr>
                     </tbody>
                 </table>
             </div>
             <div id="onItemRightClick" class="container-fluid" data-title="onItemRightClick">
                 <h3><span class="text-gray">this.</span>onItemRightClick() <small>返回值：boolean</small></h3>
-                <p class="indent28">当操作某个元素（节点/连线/分组泳道）被右键单击时，触发的方法。</p>
+                <p class="indent28">当操作某个元素（节点/连线/分组泳道/便笺）被右键单击时，触发的方法。</p>
                 <p class="f16">传参：<code>( id, type )</code></p>
                 <table class="table table-striped table-bordered">
                     <thead><tr><th>名称</th><th>类型/格式</th><th>描述</th></tr></thead>
                     <tbody class="text-center">
                     <tr><td class="text-primary f16">id</td><td>String</td><td class="text-muted text-left">元素的id，唯一标识。</td></tr>
-                    <tr><td class="text-primary f16">type</td><td>String</td><td class="text-muted text-left">元素的种类，有<code>'node'</code>节点、<code>'line'</code>连线、<code>'area'</code>分组泳道三种。</td></tr>
+                    <tr><td class="text-primary f16">type</td><td>String</td><td class="text-muted text-left">元素的种类，有<code>'node'</code>节点、<code>'line'</code>连线、<code>'area'</code>分组泳道、<code>'memo'</code>便笺四种。</td></tr>
                     </tbody>
                 </table>
             </div>
 
             <div id="onItemAdd" class="container-fluid" data-title="onItemAdd">
                 <h3><span class="text-gray">this.</span>onItemAdd() <small>返回值：boolean</small></h3>
-                <p class="indent28">当某个元素（节点/连线/分组泳道）被添加时，触发的方法。</p>
+                <p class="indent28">当某个元素（节点/连线/分组泳道/便笺）被添加时，触发的方法。</p>
                 <p class="f16">传参：<code>( id, type, json )</code></p>
                 <table class="table table-striped table-bordered">
                     <thead><tr><th>名称</th><th>类型/格式</th><th>描述</th></tr></thead>
                     <tbody class="text-center">
                     <tr><td class="text-primary f16">id</td><td>String</td><td class="text-muted text-left">元素的id，唯一标识。</td></tr>
-                    <tr><td class="text-primary f16">type</td><td>String</td><td class="text-muted text-left">元素的种类，有<code>'node'</code>节点、<code>'line'</code>连线、<code>'area'</code>分组泳道三种。</td></tr>
+                    <tr><td class="text-primary f16">type</td><td>String</td><td class="text-muted text-left">元素的种类，有<code>'node'</code>节点、<code>'line'</code>连线、<code>'area'</code>分组泳道、<code>'memo'</code>便笺四种。</td></tr>
                     <tr><td class="text-primary f16">json</td><td>[ NodeItem | LineItem | AreaItem ]</td><td class="text-muted text-left">描述元素的相应结构数据。
                         当元素是节点时为<code>NodeItem</code>型数据；当元素是连线时为<code>LineItem</code>型数据；当元素是分组泳道时为<code>AreaItem</code>型数据。</td></tr>
                     </tbody>
@@ -121,25 +121,25 @@
             </div>
             <div id="onItemDel" class="container-fluid" data-title="onItemDel">
                 <h3><span class="text-gray">this.</span>onItemDel() <small>返回值：boolean</small></h3>
-                <p class="indent28">当某个元素（节点/连线/分组泳道）被删除时，触发的方法。</p>
+                <p class="indent28">当某个元素（节点/连线/分组泳道/便笺）被删除时，触发的方法。</p>
                 <p class="f16">传参：<code>( id, type )</code></p>
                 <table class="table table-striped table-bordered">
                     <thead><tr><th>名称</th><th>类型/格式</th><th>描述</th></tr></thead>
                     <tbody class="text-center">
                     <tr><td class="text-primary f16">id</td><td>String</td><td class="text-muted text-left">元素的id，唯一标识。</td></tr>
-                    <tr><td class="text-primary f16">type</td><td>String</td><td class="text-muted text-left">元素的种类，有<code>'node'</code>节点、<code>'line'</code>连线、<code>'area'</code>分组泳道三种。</td></tr>
+                    <tr><td class="text-primary f16">type</td><td>String</td><td class="text-muted text-left">元素的种类，有<code>'node'</code>节点、<code>'line'</code>连线、<code>'area'</code>分组泳道、<code>'memo'</code>便笺四种。</td></tr>
                     </tbody>
                 </table>
             </div>
             <div id="onItemMove" class="container-fluid" data-title="onItemMove">
                 <h3><span class="text-gray">this.</span>onItemMove() <small>返回值：boolean</small></h3>
-                <p class="indent28">当某个元素（节点/分组泳道）被移动至新位置时，触发的方法。</p>
+                <p class="indent28">当某个元素（节点/分组泳道/便笺）被移动至新位置时，触发的方法。</p>
                 <p class="f16">传参：<code>( id, type, left, top )</code></p>
                 <table class="table table-striped table-bordered">
                     <thead><tr><th>名称</th><th>类型/格式</th><th>描述</th></tr></thead>
                     <tbody class="text-center">
                     <tr><td class="text-primary f16">id</td><td>String</td><td class="text-muted text-left">元素的id，唯一标识。</td></tr>
-                    <tr><td class="text-primary f16">type</td><td>String</td><td class="text-muted text-left">元素的种类，有<code>'node'</code>节点、<code>'area'</code>分组泳道两种。</td></tr>
+                    <tr><td class="text-primary f16">type</td><td>String</td><td class="text-muted text-left">元素的种类，有<code>'node'</code>节点、<code>'area'</code>分组泳道、<code>'memo'</code>便笺三种。</td></tr>
                     <tr><td class="text-primary f16">left</td><td>Number</td><td class="text-muted text-left">元素在新位置上的相对于工作区的左边距，单位像素。</td></tr>
                     <tr><td class="text-primary f16">top</td><td>Number</td><td class="text-muted text-left">元素在新位置上的相对于工作区的上边距，单位像素。</td></tr>
                     </tbody>
@@ -160,13 +160,13 @@
             </div>
             <div id="onItemResize" class="container-fluid" data-title="onItemResize">
                 <h3><span class="text-gray">this.</span>onItemResize() <small>返回值：boolean</small></h3>
-                <p class="indent28">当某个元素（节点/分组泳道）被移动至新位置时，触发的方法。</p>
+                <p class="indent28">当某个元素（节点/分组泳道/便笺）被移动至新位置时，触发的方法。</p>
                 <p class="f16">传参：<code>( id, type, width, height )</code></p>
                 <table class="table table-striped table-bordered">
                     <thead><tr><th>名称</th><th>类型/格式</th><th>描述</th></tr></thead>
                     <tbody class="text-center">
                     <tr><td class="text-primary f16">id</td><td>String</td><td class="text-muted text-left">元素的id，唯一标识。</td></tr>
-                    <tr><td class="text-primary f16">type</td><td>String</td><td class="text-muted text-left">元素的种类，有<code>'node'</code>节点、<code>'line'</code>连线、<code>'area'</code>分组泳道三种。</td></tr>
+                    <tr><td class="text-primary f16">type</td><td>String</td><td class="text-muted text-left">元素的种类，有<code>'node'</code>节点、<code>'line'</code>连线、<code>'area'</code>分组泳道、<code>'memo'</code>便笺四种。</td></tr>
                     <tr><td class="text-primary f16">width</td><td>Number</td><td class="text-muted text-left">元素的新宽度，单位像素；元素为节点时最小<code>104px</code>，元素为分组泳道时最小<code>200px</code>。</td></tr>
                     <tr><td class="text-primary f16">height</td><td>Number</td><td class="text-muted text-left">元素的新高度，单位像素；元素为节点时最小<code>26px</code>，元素为分组泳道时最小<code>100px</code>。</td></tr>
                     </tbody>

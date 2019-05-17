@@ -4,7 +4,7 @@
 
         <div id="staticObject" class="container-fluid" data-title="全局静态配置项">
             <h2 class="text-primary">全局静态配置项</h2>
-            <p>这些配置需要在初始化一个GooFlow实例前就设置好，更多详情请参考RAR实例包中的<code>global.js</code>配置文件。</p>
+            <p>这些配置需要在初始化一个GooFlow实例前就设置好。</p>
             <div id="colors" class="container-fluid" data-title="colors">
                 <h3><span class="text-gray">GooFlow.</span>colors <small>类型：Json Object</small></h3>
                 <p>GooFlow中默认的、可配置的各主要元素的颜色。</p>
@@ -193,15 +193,14 @@
             <div id="defNodeType" class="container-fluid" data-title="节点定义类型">
                 <h3>节点定义类型</h3>
                 <p>用户可自定义新类型，也可覆盖原生自带类型的css样式。但切不可用以下关键字命名新节点类型：</p>
-                <p class="f16"><code>'cursor'</code>、<code>'direct'</code>、<code>'dirDashed'</code>、<code>'segment'</code>、<code>'segDashed'</code></p>
-                <p>这几个关键字在工具栏中分别表示：<b>指针按钮</b>、<b>有向实线按钮</b>、<b>有向虚线按钮</b>、<b>无向实线按钮</b>、<b>无向虚线按钮</b>。</p>
+                <p class="f16"><code>'cursor'</code>、<code>'direct'</code>、<code>'dirDashed'</code>、<code>'segment'</code>、<code>'segDashed'</code>、<code>'group'</code>、<code>'memo'</code></p>
+                <p>这几个关键字在工具栏中分别表示：<b>指针按钮</b>、<b>有向实线按钮</b>、<b>有向虚线按钮</b>、<b>无向实线按钮</b>、<b>无向虚线按钮</b>、<b>泳道编辑开关</b>、<b>便笺编辑开关</b>。</p>
             </div>
             <div id="defToolTip" class="container-fluid" data-title="工具栏文字说明">
                 <h3>工具栏文字说明</h3>
                 <p>文字说明定义用的JsonMap结构是以<code>{'按钮类型名':'文字说明'}</code>的方式来构建的；除了节点类型按钮外，其它几个按钮的说明文字定义就需要用通过几个关键字的key进行设定了。如下：</p>
                 <pre><code class="language-javascript">GooFlow.remarks.toolBtns = {
     cursor : "选择指针的提示",
-    multi : "多选框的提示",
     direct : "有向实线的提示",
     dirDashed : "有向虚线的提示",
     segment : "无向实线的提示",
