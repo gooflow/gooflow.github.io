@@ -23,7 +23,9 @@
             <h2 class="text-primary">Personalized Skin</h2>
             <p>Concerned that GooFlow native skin is not suitable for project system UI style? Then set it again. Here are a few ways to do it:</p>
             <ol>
-                <li>Refer to the <code>global.js</code> configuration file content custom style in the example, and then pass the json data as a global pass parameter in the GooFlow component tag to the component.</li>
+                <li>Customize <code>GooFlow.colors</code> attributes by referring to the <code>global.js</code> configuration file content in the instance;
+                    If in the Vue edition, you also need to pass the JSON data into the component as <code>global</code> parameters in the GooFlow component tag.</li>
+                <li>If in Js native edition, you can also override some or all of the color definitions with the <code>GooFlow.setColors</code> function before initializing the instance.</li>
                 <li>The ultimate method: directly modify GooFlow.css's source code, and then <code> npm run build </code> again!</li>
             </ol>
         </div>
@@ -31,7 +33,7 @@
         <div id="interface" class="container-fluid" data-title="Extending Methods">
             <h2 class="text-primary">Extending Methods</h2>
             <p>The function interface provided by the GooFlow instance is not enough? Then extend the new functional interface!</p>
-            <p>Use <code>GooFlow.extend</code> methods to extend the functionality of the GooFlow class,static methods to extend the functionality of the GooFlow class:
+            <p>Use <code>GooFlow.extend</code>static methods to extend the functionality of the GooFlow class,static methods to extend the functionality of the GooFlow class:
             </p>
             <pre><code class="language-javascript">const myFunctions = {
     'funcName1':function(arg1){ /* Concrete method realization */ },
@@ -39,10 +41,12 @@
     'funcName3':function(){ /* Concrete method realization */ },
                 ……
 };
-this.$refs.gooflow.extend( myFunctions );</code></pre>
+GooFlow.extend( myFunctions );  //extended in Js Native Edition, should be called before initialized
+this.$refs.gooflow.extend( myFunctions );  //extended in Vue Edition
+this.gooflow.extend( myFunctions );        //extended in React Edition
+</code></pre>
             <p>Then the GooFlow instance can call these new methods. However, it should be noted that <span class="text-warning">if the method definition has a method name which is she same as a original method name, it will override the original method implementation!</span></p>
-            <pre><code class="language-javascript">
-const instance = this.$refs.gooflow;
+            <pre><code class="language-javascript">//The 'instance' is a GooFlow component instance object
 instance.funcName1(arg1);
 instance.funcName2(arg1,arg2);
 ……</code></pre>
@@ -71,7 +75,8 @@ instance.funcName2(arg1,arg2);
     ],
     haveTool:true,
     ……
-};</code></pre></li>
+};
+</code></pre></li>
                 <li>The browser opens the relevant page, and you can see that there are more node buttons defined on the toolbar on the left side of the designer; click on a new type node to try it out!</li>
             </ol>
             <blockquote><small>Note: If you want to use both the Css sprite and the export process image file, make sure that the node icons defined in the css sprite mode all come from the same background image file!</small></blockquote>
@@ -81,7 +86,7 @@ instance.funcName2(arg1,arg2);
         <div id="shapeIcon" class="container-fluid" data-title="New Node Shape">
             <h2 class="text-primary">New Node Shape</h2>
             <p>Think GooFlow's own node is not professional enough? Then use the new shape!</p>
-            <p>GooFlow has supported for oval, diamond, parallelogram, and capsule shapes. Users can better represent the meaning of the flowchart.</p>
+            <p>Since version 1.3.4, GooFlow has added support for oval, diamond, parallelogram, and capsule shapes. Users can better represent the meaning of the flowchart.</p>
             <p>Usage: In the initialization parameter, pass the parameter to the toolBtns array element directly to add the suffix and extend the definition node style class.</p>
             <p>GooFlow currently supports the following shapes, just as it does for a circular node with <code>nodeType+" round"</code>.</p>
             <table class="table table-bordered">

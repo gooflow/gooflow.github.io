@@ -23,7 +23,9 @@
             <h2 class="text-primary">个性化皮肤</h2>
             <p>担心GooFlow原生皮肤不适合项目系统UI样式？那就重设置吧。这里提供几种方法：</p>
             <ol>
-                <li>参考实例中的 <code>global.js</code> 配置文件内容自定义样式，然后将这json数据作为GooFlow组件标签中的global传参传入组件中。</li>
+                <li>参考实例中的<code>global.js</code>配置文件内容自定义<code>GooFlow.colors</code>属性；
+                    如果在Vue/React版下，还需要将这json数据作为GooFlow组件标签中的<code>global</code>传参传入组件中。</li>
+                <li>如果使用Js原生版，还可以在初始化实例前通过<code>GooFlow.setColors</code>接口覆盖部分或全部颜色定义。</li>
                 <li>终极大法：直接修改GooFlow.css源码，然后重新<code> npm run build </code>！</li>
             </ol>
         </div>
@@ -31,7 +33,7 @@
         <div id="interface" class="container-fluid" data-title="扩展方法接口">
             <h2 class="text-primary">扩展方法接口</h2>
             <p>嫌GooFlow实例提供的功能接口不够多？那就扩展新的功能接口吧！</p>
-            <p>使用<code>GooFlow.extend</code>方法扩展GooFlow类的功能，只要按以下定义一组新接口方法的Map集：
+            <p>使用<code>GooFlow.extend</code>静态方法扩展GooFlow类的功能，只要按以下定义一组新接口方法的Map集：
             </p>
             <pre><code class="language-javascript">const myFunctions = {
     'funcName1':function(arg1){ /*具体方法实现*/ },
@@ -39,14 +41,16 @@
     'funcName3':function(){ /*具体方法实现*/ },
                 ……
 };
-this.gooflow.extend( myFunctions );</code></pre>
-            <p>那么GooFlow实例就可以调用这些新方法了。但是要注意：<span class="text-warning">如果定义的方法Map集中有方法名称与原有的方法重名，将会覆盖掉原方法的实现哦！</span></p>
-            <pre><code class="language-javascript">
-const instance = this.gooflow;
+GooFlow.extend( myFunctions );  //在Js原生版中扩展, 需在初始化实例之前调用
+this.$refs.gooflow.extend( myFunctions );  //在Vue版中扩展，使用实例的中调用
+this.gooflow.extend( myFunctions );        //在Reat版中扩展，使用实例的中调用
+</code></pre>
+            <p>那么接下来生成的GooFlow实例就可以调用这些新方法了。但是要注意：<span class="text-warning">如果定义的方法Map集中有方法名称与原有的方法重名，将会覆盖掉原方法的实现哦！</span></p>
+            <pre><code class="language-javascript">//instance为GooFlow组件实例对象
 instance.funcName1(arg1);
 instance.funcName2(arg1,arg2);
 ……</code></pre>
-            <blockquote><small>顺便说一下，这些自定义方法的内部实现，同样可以通过<code>this</code>来访问GooFlow实例本身。</small></blockquote>
+            <blockquote><small>顺便说一下，这些自定义方法的内部实现在，同样可以通过<code>this</code>来访问GooFlow实例本身。</small></blockquote>
         </div>
 
         <div id="addIcon" class="container-fluid" data-title="新的节点类型图标">
@@ -71,7 +75,8 @@ instance.funcName2(arg1,arg2);
     ],
     haveTool:true,
     ……
-};</code></pre></li>
+};
+</code></pre></li>
                 <li>浏览器打开相关页面，可看到设计器左侧工具栏上多出了自己定义的节点按钮；赶快点击新增一个新类型节点试试吧！</li>
             </ol>
             <blockquote><small>注意：如果你既要用Css sprite，又要用导出流程图片文件的方法，请务必确保css sprite方式定义的各节点图标全都只来自同一个背景图片文件！</small></blockquote>
@@ -80,7 +85,7 @@ instance.funcName2(arg1,arg2);
         <div id="shapeIcon" class="container-fluid" data-title="新的节点形状">
             <h2 class="text-primary">新的节点形状</h2>
             <p>觉得GooFlow自带的节点不够专业？那就使用新的形状吧！</p>
-            <p>GooFlow支持椭圆、菱形、平行四边形、胶囊形4种节点形状。用户能更好地表现流程图的意义。</p>
+            <p>从1.3.4版本开始，GooFlow增加支持椭圆、菱形、平行四边形、胶囊形4种节点形状。用户能更好地表现流程图的意义。</p>
             <p>使用方法：初始化时在传参options中，给toolBtns数组单元定义里直接加上后缀，扩展定义节点样式类。</p>
             <p>如同浸染一个圆形节点时使用<code>原有类型+" round"</code>方式一样，GooFlow目前支持以下几种形状</p>
             <table class="table table-bordered">

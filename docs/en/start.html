@@ -18,15 +18,15 @@
             <p>Introduces GooFlow style files and core library files in demo.html.</p>
             <pre><code class="language-markup">&lt;!-- demo.html --&gt;
 &lt;head&gt;
-    &lt;link rel="stylesheet" type="text/css" href="./dist/GooFlow.min.css"/>
+    &lt;link rel="stylesheet" type="text/css" href="./dist/assets/GooFlow.min.css"/>
 &lt;/head>
 &lt;body&gt;
     &lt;div id="demo">&lt;/div>
     ……
-    &lt;script type="text/javascript" src="./dist/GooFlow.min.js"&gt;&lt;/script&gt;
-    &lt;script type="text/javascript" src="./dist/GooFlow.group.min.js"&gt;&lt;/script&gt;
-    &lt;script type="text/javascript" src="./dist/GooFlow.export.min.js"&gt;&lt;/script&gt;
-    &lt;script type="text/javascript" src="./dist/GooFlow.print.min.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" src="./dist/GooFlow.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" src="./dist/extends/group.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" src="./dist/extends/export.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" src="./dist/extends/print.js"&gt;&lt;/script&gt;
     &lt;script type="text/javascript" src="./demo.js"&gt;&lt;/script&gt;
 &lt;/body&gt;</code></pre>
             <pre><code class="language-javascript">//// demo.js
@@ -55,14 +55,14 @@ requirejs.config({
 	},
     paths: {
         GooFlow: './dist/GooFlow.min',
-        'GooFlow.group': './dist/GooFlow.group.min',    // Optional, a extension file of supporting swimlane.( from Version 1.3.8rp )
-        'GooFlow.export': './dist/GooFlow.export.min',  // Optional, a extension file of exporting the flowchart into a picture file.
-        'GooFlow.print': './dist/GooFlow.print.min',    // Optional, a extension file of print the flowchart or save flowchart as a PDF file.
+        'GooFlow.group': './dist/extends/group',    // Optional, a extension file of supporting swimlane.( from Version 1.3.8rp )
+        'GooFlow.export': './dist/extends/export',  // Optional, a extension file of exporting the flowchart into a picture file.
+        'GooFlow.print': './dist/extends/print',    // Optional, a extension file of print the flowchart or save flowchart as a PDF file.
     },
     //// ……
     shim: {
         GooFlow: {
-            deps:['css!./dist/GooFlow.min.css']
+            deps:['css!./dist/assets/GooFlow.min.css']
         }
     },
 });</code></pre>

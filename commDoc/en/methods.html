@@ -6,7 +6,7 @@
             <p>These interfaces are only used to make operational experience adjustments to designer instances and to simulate flowcharts in the manual work area.</p>
             <div id="setNodeRemarks" class="container-fluid" data-title="setNodeRemarks">
                 <h3><span class="text-gray">this.</span>setNodeRemarks() <small>Return: void</small></h3>
-                <p class="indent28">When there is a left-side toolbar after initialization, set the caption text for each node or button in the left-side toolbar.</p>
+                <p class="indent28">When there is a left-side toolbar after initialization, set the caption text for each node or button in the left-side toolbar.<span class="text-danger">(Only for Js Native Edition)</span></p>
                 <p class="f16">Parameters: <code>( remarks )</code></p>
                 <table class="table table-striped table-bordered">
                     <thead><tr><th>Name</th><th>Type / Format</th><th>Description</th></tr></thead>
@@ -18,7 +18,7 @@
             </div>
             <div id="setHeadToolsRemarks" class="container-fluid" data-title="setHeadToolsRemarks">
                 <h3><span class="text-gray">this.</span>setHeadToolsRemarks() <small>Return: void</small></h3>
-                <p class="indent28">When there is a top bar after initialization, set the caption text for each button in the head bar.</p>
+                <p class="indent28">When there is a top bar after initialization, set the caption text for each button in the head bar.<span class="text-danger">(Only for Js Native Edition)</span></p>
                 <p class="f16">Parameters: <code>( remarks )</code></p>
                 <table class="table table-striped table-bordered">
                     <thead><tr><th>Name</th><th>Type / Format</th><th>Description</th></tr></thead>
@@ -30,7 +30,7 @@
             </div>
             <div id="setExtWorkRemarks" class="container-fluid" data-title="setExtWorkRemarks">
                 <h3><span class="text-gray">this.</span>setExtWorkRemarks() <small>Return: void</small></h3>
-                <p class="indent28">Set the description text for the bar button that expands the width of the workspace.</p>
+                <p class="indent28">Set the description text for the bar button that expands the width of the workspace.<span class="text-danger">(Only for Js Native Edition)</span></p>
                 <p class="f16">Parameters: <code>( remarks )</code></p>
                 <table class="table table-striped table-bordered">
                     <thead><tr><th>Name</th><th>Type / Format</th><th>Description</th></tr></thead>
@@ -55,7 +55,7 @@
             <div id="setDragAddOper" class="container-fluid" data-title="setDragAddOper">
                 <h3><span class="text-gray">this.</span>setDragAddOper() <small>Return: void</small></h3>
                 <p class="indent28">Whether to set drag-and-drop mode to add block elements currently.<br><span class="text-danger">
-                    To call this method, you need to extend the package of the GooFlow.dragadd.min.js(or dragadd.js in Vue/React) file.</span></p>
+                    To call this method, you need to extend the package of the dragadd.js file.</span></p>
                 <p class="f16">Parameters: <code>( bool )</code></p>
                 <table class="table table-striped table-bordered">
                     <thead><tr><th>Name</th><th>Type / Format</th><th>Description</th></tr></thead>
@@ -168,8 +168,8 @@
 
             <div id="initNavMap" class="container-fluid" data-title="initNavMap">
                 <h3><span class="text-gray">this.</span>initNavMap() <small>Return: void</small></h3>
-                <p class="indent28">Initialize the navigation map function.</p>
-                <p class="indent28">To call this method, you need to extend the package of the <span class="text-danger">GooFlow.navmap.min.js</span> (or <span class="text-danger">navmap.js</span> in Vue/React) file since the 1.3.9 version.</p>
+                <p class="indent28">Initialize the navigation map function.<span class="text-danger">(Only for Js Native Edition)</span></p>
+                <p class="indent28">To call this method, you need to extend the package of the <span class="text-danger">navmap.js</span> file.</p>
                 <p class="f16">Parameters: <code>( selector, width, height )</code></p>
                 <table class="table table-striped table-bordered">
                     <thead><tr><th>Name</th><th>Type / Format</th><th>Description</th></tr></thead>
@@ -183,7 +183,7 @@
             <div id="refreshMap" class="container-fluid" data-title="refreshMap">
                 <h3><span class="text-gray">this.</span>refreshMap() <small>Return: void</small></h3>
                 <p class="indent28">Refresh the navigation map display data according to the loaded flowchart content.</p>
-                <p class="indent28">To call this method, you need to extend the package of the <span class="text-danger">GooFlow.navmap.min.js</span> (or <span class="text-danger">navmap.js</span> in Vue/React) file since the 1.3.9 version.</p>
+                <p class="indent28">To call this method, you need to extend the package of the <span class="text-danger">navmap.js</span> file.</p>
 
                 <p class="f16">Parameters: <span class="text-gray">(none)</span></p>
             </div>
@@ -441,7 +441,7 @@
             <h2 class="text-primary">Batch Operation</h2>
             <div id="batchMarkItem" class="container-fluid" data-title="batchMarkItem">
                 <h3><span class="text-gray">this.</span>batchMarkItem() <small>Return: void</small></h3>
-                <p class="indent28">Mark / unmark multiple nodes/lines elements batchly. You need to extend the package of the <span class="text-danger">GooFlow.multi.min.js</span> (or <span class="text-danger">multi.js</span> in Vue/React) file.
+                <p class="indent28">Mark / unmark multiple nodes/lines elements batchly. You need to extend the package of the <span class="text-danger">multi.js</span> file.
                     <br>If you want to customize the colors of the labels, modify<span class="text-warning">GooFlow.colors.mark</span>.</p>
                 <p class="f16">Parameters: <code>( nodeIds, lineIds, mark )</code></p>
                 <table class="table table-striped table-bordered">
@@ -455,7 +455,7 @@
             </div>
             <div id="batchAddItem" class="container-fluid" data-title="batchAddItem">
                 <h3><span class="text-gray">this.</span>batchAddItem() <small>Return: void</small></h3>
-                <p class="indent28">Add multiple nodes/lines elements batchly. You need to extend the package of the <span class="text-danger">GooFlow.multi.min.js</span> (or <span class="text-danger">multi.js</span> in Vue/React) file.</p>
+                <p class="indent28">Add multiple nodes/lines elements batchly. You need to extend the package of the <span class="text-danger">multi.js</span> file.</p>
                 <p class="f16">Parameters: <code>( nodes, lines )</code></p>
                 <table class="table table-striped table-bordered">
                     <thead><tr><th>Name</th><th>Type / Format</th><th>Description</th></tr></thead>
@@ -467,7 +467,7 @@
             </div>
             <div id="batchMove" class="container-fluid" data-title="batchMove">
                 <h3><span class="text-gray">this.</span>batchMove() <small>Return: void</small></h3>
-                <p class="indent28">Move multiple nodes/lines elements batchly. You need to extend the package of the <span class="text-danger">GooFlow.multi.min.js</span> (or <span class="text-danger">multi.js</span> in Vue/React) file.</p>
+                <p class="indent28">Move multiple nodes/lines elements batchly. You need to extend the package of the <span class="text-danger">multi.js</span> file.</p>
                 <p class="f16">Parameters: <code>( nodeIds, lineIds, moveX, moveY )</code></p>
                 <table class="table table-striped table-bordered">
                     <thead><tr><th>Name</th><th>Type / Format</th><th>Description</th></tr></thead>
@@ -481,7 +481,7 @@
             </div>
             <div id="batchDelete" class="container-fluid" data-title="batchDelete">
                 <h3><span class="text-gray">this.</span>batchDelete() <small>Return: void</small></h3>
-                <p class="indent28">Delete multiple nodes/lines elements batchly. You need to extend the package of the <span class="text-danger">GooFlow.multi.min.js</span> (or <span class="text-danger">multi.js</span> in Vue/React) file.</p>
+                <p class="indent28">Delete multiple nodes/lines elements batchly. You need to extend the package of the <span class="text-danger">multi.js</span> file.</p>
                 <p class="f16">Parameters: <code>( nodeIds, lineIds)</code></p>
                 <table class="table table-striped table-bordered">
                     <thead><tr><th>Name</th><th>Type / Format</th><th>Description</th></tr></thead>
@@ -498,7 +498,7 @@
             <div id="addArea" class="container-fluid" data-title="addArea">
                 <h3><span class="text-gray">this.</span>addArea() <small>Return: void</small></h3>
                 <p class="indent28">Add a lane.</p>
-                <p class="indent28">To call this method, you need to extend the package of the <span class="text-danger">GooFlow.group.min.js</span>(or <span class="text-danger">group.js</span> in Vue/React) file since the 1.3.8 version.</p>
+                <p class="indent28">To call this method, you need to extend the package of the <span class="text-danger">group.js</span> file.</p>
                 <p class="f16">Parameters: <code>( id, data )</code></p>
                 <table class="table table-striped table-bordered">
                     <thead><tr><th>Name</th><th>Type / Format</th><th>Description</th></tr></thead>
@@ -511,7 +511,7 @@
             <div id="moveArea" class="container-fluid" data-title="moveArea">
                 <h3><span class="text-gray">this.</span>moveArea() <small>Return: void</small></h3>
                 <p class="indent28">Move lane to a new location.</p>
-                <p class="indent28">To call this method, you need to extend the introduction of the <span class="text-danger">GooFlow.group.min.js</span>(or <span class="text-danger">group.js</span> in Vue/React) file since the 1.3.8 version.</p>
+                <p class="indent28">To call this method, you need to extend the introduction of the <span class="text-danger">group.js</span> file.</p>
                 <p class="f16">Parameters: <code>( id, left, top )</code></p>
                 <table class="table table-striped table-bordered">
                     <thead><tr><th>Name</th><th>Type / Format</th><th>Description</th></tr></thead>
@@ -525,7 +525,7 @@
             <div id="resizeArea" class="container-fluid" data-title="resizeArea">
                 <h3><span class="text-gray">this.</span>resizeArea() <small>Return: void</small></h3>
                 <p class="indent28">Reset the size of the lane.</p>
-                <p class="indent28">To call this method, you need to extend the introduction of the <span class="text-danger">GooFlow.group.min.js</span>(or <span class="text-danger">group.js</span> in Vue/React) file since the 1.3.8 version.</p>
+                <p class="indent28">To call this method, you need to extend the introduction of the <span class="text-danger">group.js</span> file.</p>
                 <p class="f16">Parameters: <code>( id, width, height )</code></p>
                 <table class="table table-striped table-bordered">
                     <thead><tr><th>Name</th><th>Type / Format</th><th>Description</th></tr></thead>
@@ -539,7 +539,7 @@
             <div id="setAreaColor" class="container-fluid" data-title="setAreaColor">
                 <h3><span class="text-gray">this.</span>setAreaColor() <small>Return: void</small></h3>
                 <p class="indent28">Set the color of grouped lanes.</p>
-                <p class="indent28">To call this method, you need to extend the introduction of the <span class="text-danger">GooFlow.group.min.js</span>(or <span class="text-danger">group.js</span> in Vue/React) file since the 1.3.8 version.</p>
+                <p class="indent28">To call this method, you need to extend the introduction of the <span class="text-danger">group.js</span> file.</p>
                 <p class="f16">Parameters: <code>( id, color )</code></p>
                 <table class="table table-striped table-bordered">
                     <thead><tr><th>Name</th><th>Type / Format</th><th>Description</th></tr></thead>
@@ -552,7 +552,7 @@
             <div id="delArea" class="container-fluid" data-title="delArea">
                 <h3><span class="text-gray">this.</span>delArea() <small>Return: void</small></h3>
                 <p class="indent28">Delete a lane.</p>
-                <p class="indent28">To call this method, you need to extend the introduction of the <span class="text-danger">GooFlow.group.min.js</span>(or <span class="text-danger">group.js</span> in Vue/React) file since the 1.3.8 version.</p>
+                <p class="indent28">To call this method, you need to extend the introduction of the <span class="text-danger">group.js</span> file.</p>
                 <p class="f16">Parameters: <code>( id )</code></p>
                 <table class="table table-striped table-bordered">
                     <thead><tr><th>Name</th><th>Type / Format</th><th>Description</th></tr></thead>
@@ -568,7 +568,7 @@
             <div id="addMemo" class="container-fluid" data-title="addMemo">
                 <h3><span class="text-gray">this.</span>addMemo() <small>Return: void</small></h3>
                 <p class="indent28">Add a memo.</p>
-                <p class="indent28">To call this method, you need to extend the package of the <span class="text-danger">GooFlow.memo.min.js</span> (or <span class="text-danger">memo.js</span> in Vue/React) file since the 1.3.8 version.</p>
+                <p class="indent28">To call this method, you need to extend the package of the <span class="text-danger">memo.js</span> file.</p>
                 <p class="f16">Parameters: <code>( id, data )</code></p>
                 <table class="table table-striped table-bordered">
                     <thead><tr><th>Name</th><th>Type / Format</th><th>Description</th></tr></thead>
@@ -581,7 +581,7 @@
             <div id="moveMemo" class="container-fluid" data-title="moveMemo">
                 <h3><span class="text-gray">this.</span>moveMemo() <small>Return: void</small></h3>
                 <p class="indent28">Move memo to a new location.</p>
-                <p class="indent28">To call this method, you need to extend the introduction of the <span class="text-danger">GooFlow.memo.min.js</span> (or <span class="text-danger">memo.js</span> in Vue/React) file since the 1.3.8 version.</p>
+                <p class="indent28">To call this method, you need to extend the introduction of the <span class="text-danger">memo.js</span> file.</p>
                 <p class="f16">Parameters: <code>( id, left, top )</code></p>
                 <table class="table table-striped table-bordered">
                     <thead><tr><th>Name</th><th>Type / Format</th><th>Description</th></tr></thead>
@@ -595,7 +595,7 @@
             <div id="resizeMemo" class="container-fluid" data-title="resizeMemo">
                 <h3><span class="text-gray">this.</span>resizeMemo() <small>Return: void</small></h3>
                 <p class="indent28">Reset the size of the memo.</p>
-                <p class="indent28">To call this method, you need to extend the introduction of the <span class="text-danger">GooFlow.memo.min.js</span> (or <span class="text-danger">memo.js</span> in Vue/React) file since the 1.3.8 version.</p>
+                <p class="indent28">To call this method, you need to extend the introduction of the <span class="text-danger">memo.js</span> file.</p>
                 <p class="f16">Parameters: <code>( id, width, height )</code></p>
                 <table class="table table-striped table-bordered">
                     <thead><tr><th>Name</th><th>Type / Format</th><th>Description</th></tr></thead>
@@ -609,7 +609,7 @@
             <div id="setMemoText" class="container-fluid" data-title="setMemoText">
                 <h3><span class="text-gray">this.</span>setMemoText() <small>Return: void</small></h3>
                 <p class="indent28">Set the text of a memo.</p>
-                <p class="indent28">To call this method, you need to extend the introduction of the <span class="text-danger">GooFlow.memo.min.js</span> (or <span class="text-danger">memo.js</span> in Vue/React) file since the 1.3.8 version.</p>
+                <p class="indent28">To call this method, you need to extend the introduction of the <span class="text-danger">memo.js</span> file.</p>
                 <p class="f16">Parameters: <code>( id, newText )</code></p>
                 <table class="table table-striped table-bordered">
                     <thead><tr><th>Name</th><th>Type / Format</th><th>Description</th></tr></thead>
@@ -622,7 +622,7 @@
             <div id="delMemo" class="container-fluid" data-title="delMemo">
                 <h3><span class="text-gray">this.</span>delMemo() <small>Return: void</small></h3>
                 <p class="indent28">Delete a memo.</p>
-                <p class="indent28">To call this method, you need to extend the introduction of the <span class="text-danger">GooFlow.memo.min.js</span> (or <span class="text-danger">memo.js</span> in Vue/React) file since the 1.3.8 version.</p>
+                <p class="indent28">To call this method, you need to extend the introduction of the <span class="text-danger">memo.js</span> file.</p>
                 <p class="f16">Parameters: <code>( id )</code></p>
                 <table class="table table-striped table-bordered">
                     <thead><tr><th>Name</th><th>Type / Format</th><th>Description</th></tr></thead>
@@ -684,7 +684,7 @@
                 <p class="indent28">Dedicated to export the flowchart file and let the user download the expansion pack method; Note:<br>
                     <span class="text-danger">
                     1, when using the css sprite way to define the node icon, each node icon only supports all from the same background image file!<br>
-                    2, to call this method, need to introduce the introduction of GooFlow.export.min.js(or export.js in Vue/React) file.
+                    2, to call this method, need to introduce the introduction of export.js file.
                     </span>
                 </p>
                 <p class="f16">Parameters: <code>( filename )</code></p>
@@ -699,7 +699,7 @@
                 <h3><span class="text-gray">this.</span>print() <small>Return: void</small></h3>
                 <p class="indent28">The data in the flowchart is output as an XML string in the Bpmn2.0 format. Note:<br><span class="text-danger">
                     1. IE8 and earlier IE browsers are not supported.<br>
-                    2, to call this method, need to introduce the introduction of GooFlow.print.min.js (or print.js in Vue/React) file.
+                    2, to call this method, need to introduce the introduction of print.js file.
                 </span></p>
                 <p class="f16">Parameters: <code>( scale )</code></p>
                 <table class="table table-striped table-bordered">
@@ -712,7 +712,7 @@
             <div id="exportBpmnXML" class="container-fluid" data-title="exportBpmnXML">
                 <h3><span class="text-gray">this.</span>exportBpmnXML() <small>Return: String</small></h3>
                 <p class="indent28">The data in the flowchart is output as an XML string in the Bpmn2.0 format. Note: <br><span class="text-danger">
-                    To call this method, you need to extend the introduction of the GooFlow.xml.min.js (or xml.js in Vue/React) file.</span></p>
+                    To call this method, you need to extend the introduction of the xml.js file.</span></p>
                 <p class="f16">Parameters: <code>( nodeMaps )</code></p>
                 <table class="table table-striped table-bordered">
                     <thead><tr><th>Name</th><th>Type / Format</th><th>Description</th></tr></thead>
@@ -725,7 +725,7 @@
             <div id="exportDataFile" class="container-fluid" data-title="exportDataFile">
                 <h3><span class="text-gray">this.</span>exportDataFile() <small>Return: void</small></h3>
                 <p class="indent28">The data in the flowchart is exported as a json format file or a Bpmn 2.0 XML format file and downloaded for users. Note: <br><span class="text-danger">
-                    To call this method, you need to extend the introduction of the GooFlow.xml.min.js (or xml.js in Vue/React) file and the GooFlow.export.min.js (or export.js in Vue/React) file.</span></p>
+                    To call this method, you need to extend the introduction of the xml.js file and the export.js file.</span></p>
                 <p class="f16">Parameters: <code>( filename, fileType )</code></p>
                 <table class="table table-striped table-bordered">
                     <thead><tr><th>Name</th><th>Type / Format</th><th>Description</th></tr></thead>
@@ -738,7 +738,7 @@
             <div id="loadBpmnXML" class="container-fluid" data-title="loadBpmnXML">
                 <h3><span class="text-gray">this.</span>loadBpmnXML() <small>Return: void</small></h3>
                 <p class="indent28">Load the flowchart data of the XML file format of the Bpmn 2.0 specification. Note: <br><span class="text-danger">
-                    To call this method, you need to extend the introduction of the GooFlow.xml.min.js (or xml.js in Vue/React) file.</span></p>
+                    To call this method, you need to extend the introduction of the xml.js file.</span></p>
                 <p class="f16">Parameters: <code>( xmlDoc, nodesMap )</code></p>
                 <table class="table table-striped table-bordered">
                     <thead><tr><th>Name</th><th>Type / Format</th><th>Description</th></tr></thead>
