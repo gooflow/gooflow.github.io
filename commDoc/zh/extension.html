@@ -107,5 +107,33 @@ instance.funcName2(arg1,arg2);
             </table>
         </div>
 
+        <div id="slotNode" class="container-fluid" data-title="插槽型节点">
+            <h2 class="text-primary">插槽型节点</h2>
+            <p>想在节点设计上更加放飞自我？那就使用插槽型节点吧！</p>
+            <p>从1.5版本开始，GooFlow增加内容HTML渲染完全自定义的插槽型节点。该节点支持设置是否调整宽高，其插槽内的显示内容、CSS样式布局等均由用户自行订制。</p>
+            <p><img src="../assets/img/slotnode.png" class="img-responsive center-block"></p>
+            <p>使用方法：不同的框架版本下的GooFlow，其插槽型节点用法各不同。</p>
+            <ol>
+                <li><b>Js原生版：</b> 在初始化传参中直接使用 <code>slotNodeRenders</code> 属性进行订制；该属性内部有 <code>minWidth</code>、<code>minHeight</code>、<code>resizable</code>、<code>initInfo</code>、<code>exec:(id,json)=>{}</code> 5个属性。</li>
+                <li><b>React版：</b> 使用时在页面render方法中定义一个JSON，将该JSON作为 <code>slotNodeRenders</code> 属性写入GooFlow组件标签；该JSON内部有 <code>minWidth</code>、<code>minHeight</code>、<code>resizable</code>、<code>initInfo</code>、<code>exec:(id,json)=>{}</code> 5个属性。</li>
+                <li><b>Vue2/3版：</b> 使用时定义一个JSON，将该JSON作为 <code>slotNodeRenders</code> 属性写入GooFlow组件标签；该JSON内部有 <code>minWidth</code>、<code>minHeight</code>、<code>resizable</code>、<code>initInfo</code> 4个属性。<br>
+                    同时，在GooFlow组件标签内加入一个插槽 <code>slotRender</code>，作为exec方法型属性返回的渲染模板的替代：<br>
+                    <pre><code class="language-markup">
+&lt;goo-flow :property="myProps" :global="global" :plugIns="plugIns" ref="gooFlow" :slotNodeRenders="slotNodeRenders"&gt;
+    &lt;template #headerCustom&gt;
+        &lt;div style="margin-left:auto;margin-right:15px"&gt;自定义渲染内容插槽节点 &lt;button type="button" @click="renderDemo()"&gt;重渲染示例&lt;/button&gt;&lt;/div&gt;
+    &lt;/template&gt;
+    &lt;template #slotRender="props"&gt;
+        &lt;div v-if="props.json.type==='glass'" class="glass-container" :data-nid="props.id"&gt;
+            &lt;div class="glass-main">{{props.json.extra.label||''}}&lt;/div&gt;&lt;div class="glass-info" data-stop-bubble="1"&gt;{{props.json.name}}&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;!--对模板中某层dom设置 data-stop-bubble=“1” 时，将在该dom上对绘图区实现阻止事件冒泡、阻止默认事件发生等效果 --&gt;
+        ……
+    &lt;/template&gt;
+&lt;/goo-flow&gt;</code></pre>
+                </li>
+            </ol>
+            <p>详情可参见各个框架版本组件包实例中，名为"<code><b>demo_slot</b></code>"、"<code><b>demoSlot</b></code>"的页面实例文件内部实现。</p>
+        </div>
     </article>
 </div>
