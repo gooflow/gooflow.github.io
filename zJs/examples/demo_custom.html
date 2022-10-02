@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:v="urn:schemas-microsoft-com:vml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <title>流程图DEMO 完全自设计节点内容</title>
+    <!--[if lt IE 9]>
+    <?import namespace="v" implementation="#default#VML" ?>
+    <script type="text/javascript" src="https://cdn.bootcss.com/json2/20160511/json2.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon"/>
+    <link rel="stylesheet" type="text/css" href="../dist/GooFlow.min.css"/>
+    <style>
+        .GooFlow .ico_huber{background:url(../assets/img/gooflow_icon.png) no-repeat -116px -45px;opacity:1 !important;filter:Alpha(Opacity=100) !important;}
+        .GooFlow .ico_router{background:url(../assets/img/gooflow_icon.png) no-repeat -97px -45px;opacity:1 !important;filter:Alpha(Opacity=100) !important;}
+        .GooFlow .custom_huber{background:url(../assets/img/gooflow_icon.png) no-repeat -1px -84px;opacity:1 !important;filter:Alpha(Opacity=100) !important;}
+        .GooFlow .custom_router{background:url(../assets/img/gooflow_icon.png) no-repeat -107px -84px;opacity:1 !important;filter:Alpha(Opacity=100) !important;}
+        .GooFlow .ico_plug2{background:url(../assets/img/gooflow_icon.png) no-repeat -135px -45px;opacity:1 !important;filter:Alpha(Opacity=100) !important;}
+    </style>
+</head>
+<body>
+<div id="demo" style="width:100%;height:540px;"></div>
+<div id="demo2" style="width:100%;height:30px;"></div>
+请输入缩放值：<input type="text" id="scaleValue" value="0.5"/>
+<input id="scale" type="button" value='缩放' onclick="ResetScale()"/>
+<input id="submit" type="button" value='导出结果' onclick="Export()"/>
+<input id="clear" type="button" value='清空' onclick="demo.clearData()"/>
+<textarea id="result" row="6"></textarea>
+<script src="../assets/js/demo_custom.js"></script>
+<script type="text/javascript">
+    var property={
+        auth:auth,
+        toolBtns:["huber","router","plug2","complex mix"],
+        haveHead:true,
+        headLabel:true,
+        headBtns:["new","open","save","undo","redo","reload","print"],//如果haveHead=true，则定义HEAD区的按钮
+        haveTool:true,
+		haveDirDashed:true,
+		haveSegment:true,
+		haveSegDashed:true,
+        haveGroup:true,
+        useOperStack:true,
+        nodeCustoms:{
+            huber: {
+                class: 'custom_huber',
+                width:102,height:50
+            },
+            router: {
+				class: 'custom_router',
+                width:113,height:50
+            }
+        }
+    };
+    var demo;
+    $(document).ready(function(){
+        demo=GooFlow.init("#demo",property);
+        demo.loadData(jsondata);
+        demo.onBtnSaveClick=function(){
+            demo.exportDiagram('exportName');//流程图导出图片功能
+        }
+    });
+    function Export(){
+        document.getElementById("result").value=JSON.stringify(demo.exportData());
+    }
+    function ResetScale(){
+        demo.resetScale( parseFloat(document.getElementById("scaleValue").value) );
+    }
+</script>
+</body>
+</html>

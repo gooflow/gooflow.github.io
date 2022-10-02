@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:activiti="http://activiti.org/bpmn"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             targetNamespace="textDemos"
+             xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL
+    http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd">
+    <errorEvent type="timeout"/>
+    <description>一个GooFlow的示例</description>
+    <initNum>16</initNum>
+    <process id="xmlLoader" name="newFlow_1">
+        <swimlane id="1497581247380" g="451,110,226,108" name="1497581247380" title="审议会" color="red" alt="true"/>
+        <startEvent id="demo_node_1" g="42,38,26,26" name="开始" alt="true"/>
+        <endEvent id="demo_node_2" g="797,42,26,26" name="结束" alt="true"/>
+        <task id="demo_node_3" g="155,39,104,26" name="入职申请" marked="true" alt="true" aaa="AAA">
+            <ooo bbb="BBB">DDDD</ooo>
+            <ccc>CCCC</ccc>
+            <xxx hhh="HHH"/>
+        </task>
+        <task id="demo_node_4" g="364,42,104,26" name="人力审批" alt="true" text="请人力审批"/>
+        <node id="demo_node_8" g="571,43,104,26" name="工资判断" alt="true"/>
+        <task id="demo_node_9" g="559,141,104,26" name="经理终审" alt="true"/>
+        <sequenceFlow id="demo_line_5" sourceRef="demo_node_3" targetRef="demo_node_4" type="sl" M="undefined" name="提交申请" marked="false" dash="false"/>
+        <sequenceFlow id="demo_line_6" sourceRef="demo_node_1" targetRef="demo_node_3" type="sl" M="undefined" name="" marked="false" dash="true"/>
+        <sequenceFlow id="demo_line_7" sourceRef="demo_node_4" targetRef="demo_node_3" type="tb" M="18.5" name="不通过" marked="false" dash="false"/>
+        <sequenceFlow id="demo_line_10" sourceRef="demo_node_4" targetRef="demo_node_8" type="sl" M="undefined" name="通过" marked="false" dash="true"/>
+        <sequenceFlow id="demo_line_11" sourceRef="demo_node_9" targetRef="demo_node_4" type="tb" M="157" name="不接受" marked="false" dash="true"/>
+        <sequenceFlow id="demo_line_12" sourceRef="demo_node_8" targetRef="demo_node_9" type="sl" M="undefined" name="大于8000" marked="false" dash="false"/>
+        <sequenceFlow id="demo_line_13" sourceRef="demo_node_8" targetRef="demo_node_2" type="sl" M="undefined" name="小于8000" marked="false" dash="false"/>
+        <sequenceFlow id="demo_line_14" sourceRef="demo_node_9" targetRef="demo_node_2" type="sl" M="undefined" name="接受" marked="true" dash="false"/>
+    </process>
+</definitions>

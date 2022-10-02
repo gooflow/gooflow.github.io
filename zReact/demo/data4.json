@@ -1,0 +1,72 @@
+﻿{
+    "title": "newFlow_slot",
+    "nodes": {
+        "demo_node_1": {
+            "name": "数据表设计",
+            "left": 42,
+            "top": 38,
+            "type": "table",
+            "width": 26,
+            "height": 26,
+            "extra": {
+                "list": [
+                    {"fieldName": "主键ID", "fieldType":"string"},{"fieldName": "交易单号", "fieldType":"bigint"},
+                    {"fieldName": "交易日期", "fieldType":"datetime"},{"fieldName": "交易类型", "fieldType":"number"},
+                    {"fieldName": "买方", "fieldType":"string"},{"fieldName": "卖方", "fieldType":"string"},
+                    {"fieldName": "联系电话", "fieldType":"number"},{"fieldName": "商品描述", "fieldType":"string"},
+                    {"fieldName": "数量", "fieldType":"number"},{"fieldName": "备注", "fieldType":"string"}
+                ]
+            }
+        },
+        "demo_node_2": {
+            "name": "员工名片",
+            "left": 490,
+            "top": 42,
+            "type": "card",
+            "width": 280,
+            "height": 180,
+            "marked": true,
+            "extra": {
+                "image": "/img/card.png",
+                "avator": "https://portrait.gitee.com/uploads/avatars/user/157/472359_foolegg126_1578924954.png!avatar200",
+                "userName": "加藤鹰",
+                "country": "小日子霓虹岛国",
+                "speciality": "神之手、金手指"
+            }
+        },
+        "demo_node_3": {
+            "name": "简单的示例",
+            "left": 380,
+            "top": 239,
+            "type": "glass",
+            "width": 80,
+            "height": 26,
+            "extra": {
+                "label": "ABCDEFGH"
+            }
+        }
+    },
+    "lines": {},
+    "areas": {
+        "1497581247380": {
+            "name": "审议会",
+            "left": 251,
+            "top": 60,
+            "color": "red",
+            "width": 226,
+            "height": 108,
+            "alt": true
+        }
+    },
+    "memos": {
+        "1663550110786": {
+            "text": "插槽类节点的示例",
+            "left": 250,
+            "top": 180,
+            "width": 140,
+            "height": 54,
+            "alt": true
+        }
+    },
+    "initNum": 20
+}
