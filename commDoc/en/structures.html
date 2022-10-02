@@ -176,6 +176,39 @@
             </div>
         </div>
 
+        <div id="NodeCustoms" class="container-fluid" data-title="NodeCustoms">
+            <h3>NodeCustoms <small>Type: Json Object</small></h3>
+            <p>Some special types of nodes are independently defined by background map and width height configuration.</p>
+            <table class="table table-striped table-bordered">
+                <thead><tr>
+                    <th>Property</th><th>Type</th><th>Default</th><th>Description</th>
+                </tr></thead>
+                <tbody class="text-center">
+                <tr><td class="text-primary f16">……</td><td>Json Object</td><td class="text-gray">{}</td><td class="text-muted text-left">Key is the name of the node type to be specialized, value is a json, and has three attributes:
+                    <code>{<br> &nbsp;&nbsp;class:"className of backgroundImage",<br> &nbsp;&nbsp;width:"node's width in pixels",<br> &nbsp;&nbsp;height:"node's height in pixels"<br>}</code></td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="SlotNodeRenders" class="container-fluid" data-title="SlotNodeRenders">
+            <h3>SlotNodeRenders <small>Type: Json Object</small></h3>
+            <p>The rendering configuration that only uses custom html label templates is adopted for the slot type nodes. (Since version 1.5)<br>
+                The Key is type of node,The Value's detailed parameter options are follows:</p>
+            <table class="table table-striped table-bordered">
+                <thead><tr>
+                    <th>Property</th><th>Type</th><th>Default</th><th>Description</th>
+                </tr></thead>
+                <tbody class="text-center">
+                <tr><td class="text-primary f16">minWidth</td><td>Number</td><td class="text-gray">104</td><td class="text-muted text-left">Minimum width of slot node, in pixels.</td></tr>
+                <tr><td class="text-primary f16">minHeight</td><td>Number</td><td class="text-gray">26</td><td class="text-muted text-left">Minimum height of slot node, in pixels.</td></tr>
+                <tr><td class="text-primary f16">resizable</td><td>Boolean</td><td class="text-gray">false</td><td class="text-muted text-left">Whether resizing is supported. The default is not supported.</td></tr>
+                <tr><td class="text-primary f16">initInfo</td><td>Json Object</td><td class="text-gray">{}</td><td class="text-muted text-left">The default value definition used when adding a blank slot node of a certain type.</td></tr>
+                <tr><td class="text-primary f16">exec</td><td>Function</td><td class="text-gray">(id,json){}</td>
+                    <td class="text-muted text-left">This item is invalid in Vue version. Render the internal content template of the node of the specified type. Follow the string template specification of ES6 in Js native version and Eeact render template specification in React version.
+                        <br>Parameter: Id is the reference of node id, and json is the reference of node detailed data.</td></tr>
+                </tbody>
+            </table>
+        </div>
+
         <div id="someKeyword" class="container-fluid" data-title="Sensitive Keywords">
             <h2 class="text-primary">Sensitive Keywords</h2>
             <div id="defNodeType" class="container-fluid" data-title="Node Definition">

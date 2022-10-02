@@ -51,10 +51,53 @@
                 <tr><td class="text-primary f16">multiKey</td><td>String</td><td class="text-gray">shift</td><td class="text-muted text-left">When the mouse clicks to select an element in the flowchart, at the same time it holds down which function keys to achieve multi-selection. There are < code > shift </code >, < code > Ctrl </code > two values, default is shift key.</td></tr>
                 </tbody>
             </table>
-            <h3>global <small>类型：Json Object</small></h3>
+            <h3>global <small>Json Object</small></h3>
             For the global definition of color and text prompt content of GooFlow component, the <code>global.js</code> configuration file in RAR instance package is explained in detail.
-            <h3>plugIns <small>类型：Array(Object)</small></h3>
+            <h3>plugIns <small>Array(Object)</small></h3>
             List of functional extensions to be introduced for GooFlow component instances. All list units are introduced from the Extension Library File: <code>import extension name from './GooFlow/extends/Extension File name'; </code>
+            <h3>slotNodeRenders <small>Json Object</small></h3>
+            The rendering configuration that only uses custom html label templates is adopted for the slot type nodes. (Since version 1.5)<br>
+            The Key is type of node,The Value's detailed parameter options are follows:
+            <table class="table table-striped table-bordered">
+                <thead><tr>
+                    <th class="text-center">Property</th><th class="text-center">Type</th><th class="text-center">Default</th><th class="text-center">Description</th>
+                </tr></thead>
+                <tbody class="text-center">
+                <tr><td class="text-primary f16">minWidth</td><td>Number</td><td class="text-gray">104</td><td class="text-muted text-left">Minimum width of slot node, in pixels.</td></tr>
+                <tr><td class="text-primary f16">minHeight</td><td>Number</td><td class="text-gray">26</td><td class="text-muted text-left">Minimum height of slot node, in pixels.</td></tr>
+                <tr><td class="text-primary f16">resizable</td><td>Boolean</td><td class="text-gray">false</td><td class="text-muted text-left">Whether resizing is supported. The default is not supported.</td></tr>
+                <tr><td class="text-primary f16">initInfo</td><td>Json Object</td><td class="text-gray">{}</td><td class="text-muted text-left">The default value definition used when adding a blank slot node of a certain type.</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="slot" class="container-fluid" data-title="Slot">
+            <h2 class="text-primary">Slot</h2>
+            <h3>headerCustom</h3>
+            Customized html content that can be placed in the blank area on the right of the header toolbar.
+            <h3>slotRender</h3>
+            Render the internal content template of the node of the specified type, following the vue template specification. When use it, there must be a prop parameter, whose corresponding properties are as follows:
+            <table class="table table-striped table-bordered">
+                <thead><tr>
+                    <th class="text-center">Property</th><th class="text-center">Type</th><th class="text-center">Default</th><th class="text-center">Description</th>
+                </tr></thead>
+                <tbody class="text-center">
+                <tr><td class="text-primary f16">props.id</td><td>String</td><td class="text-gray">&nbsp;</td><td class="text-muted text-left">A reference to a specific node ID.</td></tr>
+                <tr><td class="text-primary f16">props.json</td><td>Json Object</td><td class="text-gray">&nbsp;</td><td class="text-muted text-left">Reference to detailed data of a specific node.</td></tr>
+                </tbody>
+            </table>
+            <pre><code class="language-markup">
+&lt;goo-flow :property="myProps" :global="global" :plugIns="plugIns" ref="gooFlow" :slotNodeRenders="slotNodeRenders"&gt;
+    &lt;template #headerCustom&gt;
+        &lt;div style="margin-left:auto;margin-right:15px"&gt;Custom Render Content Slot Node &lt;button type="button" @click="renderDemo()"&gt;Rerender A Example&lt;/button&gt;&lt;/div&gt;
+    &lt;/template&gt;
+    &lt;template #slotRender="props"&gt;
+        &lt;div v-if="props.json.type==='glass'" class="glass-container" :data-nid="props.id"&gt;
+            &lt;div class="glass-main">{{props.json.extra.label||''}}&lt;/div&gt;&lt;div class="glass-info" data-stop-bubble="1"&gt;{{props.json.name}}&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;!--When "data-stop-bubble='1'" is set for a layer of dom in the template, the drawing area will be prevented from bubbling events and default events on the dom. --&gt;
+        ……
+    &lt;/template&gt;
+&lt;/goo-flow&gt;</code></pre>
         </div>
         <div id="returns" class="container-fluid" data-title="Return">
             <h2 class="text-primary">Return</h2>

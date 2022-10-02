@@ -108,5 +108,35 @@ instance.funcName2(arg1,arg2);
             </table>
         </div>
 
+        <div id="slotNode" class="container-fluid" data-title="Slot Node">
+            <h2 class="text-primary">Slot Node</h2>
+            <p>Do you want to fly more freely in node design? Then use slot nodes!</p>
+            <p>Since version 1.5, GooFlow adds a fully customized slot node for content HTML rendering. This node supports setting whether to adjust the width and height. The display content and CSS style layout in the slot are customized by the user.</p>
+            <p><img src="../assets/img/slotnode.png" class="img-responsive center-block"></p>
+            <p>Usage: The usage of slot nodes of GooFlow in different framework edition is different.</p>
+            <ol>
+                <li><b>Js Native: </b> Use the <code>slotNodeRenders</code> attribute to customize the initialization parameter transfer; There are five attributes in this attribute: <code>minWidth</code>、<code>minHeight</code>、<code>resizable</code>、<code>initInfo</code>、<code>exec:(id,json)=>{}</code>.</li>
+                <li><b>React: </b> Define a JSON in the page render method, and write the JSON into the GooFlow component tag as the <code>slotNodeRenders</code> attribute; The JSON has five attributes: <code>minWidth</code>、<code>minHeight</code>、<code>resizable</code>、<code>initInfo</code>、<code>exec:(id,json)=>{}</code>.</li>
+                <li><b>Vue2/3: </b> Define a JSON and write it into the GooFlow component tag as a <code>slotNodeRenders</code> attribute; The JSON has four attributes: <code>minWidth</code>、<code>minHeight</code>、<code>resizable</code>、<code>initInfo</code>.<br>
+                    Then, Add a slot <code>slotRender</code> in the GooFlow component tag to replace the rendering template returned by the exec method attribute:<br>
+                    <pre><code class="language-markup">
+&lt;goo-flow :property="myProps" :global="global" :plugIns="plugIns" ref="gooFlow" :slotNodeRenders="slotNodeRenders"&gt;
+    &lt;template #headerCustom&gt;
+        &lt;div style="margin-left:auto;margin-right:15px"&gt;Custom Render Content Slot Node &lt;button type="button" @click="renderDemo()"&gt;Rerender A Example&lt;/button&gt;&lt;/div&gt;
+    &lt;/template&gt;
+    &lt;template #slotRender="props"&gt;
+        &lt;div v-if="props.json.type==='glass'" class="glass-container" :data-nid="props.id"&gt;
+            &lt;div class="glass-main">{{props.json.extra.label||''}}&lt;/div&gt;&lt;div class="glass-info" data-stop-bubble="1"&gt;{{props.json.name}}&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;!--When "data-stop-bubble='1'" is set for a layer of dom in the template, the drawing area will be prevented from bubbling events and default events on the dom. --&gt;
+        ……
+    &lt;/template&gt;
+&lt;/goo-flow&gt;</code></pre>
+                </li>
+            </ol>
+            <p>
+                For details, see the internal implementation of page instance files named "<code><b>demo_slot</b></code>" and "<code><b>demoSlot</b></code>" in the component package instances of each framework edition.</p>
+        </div>
+
     </article>
 </div>

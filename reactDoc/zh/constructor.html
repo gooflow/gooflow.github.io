@@ -61,6 +61,20 @@ class DemoExport extends React.Component{
             对GooFlow组件颜色、文字提示内容的全局定义，详解RAR实例包中的<code>global.js</code>配置文件。
             <h3>plugIns <small>类型：Array(Object)</small></h3>
             对GooFlow组件实例要引入的的功能扩展插件列表。全部列表单元都来自扩展库文件的引入：<code>import 扩展插件名 from './GooFlow/extends/扩展插件文件名';</code>
+            <h3>slotNodeRenders <small>类型：Json Object</small></h3>
+            对于插槽类型类型节点采取只使用自定义html标签模板的渲染配置，1.5版本新增。Key为节点类型type，Value详细的参数选项如下：
+            <table class="table table-striped table-bordered">
+                <thead><tr>
+                    <th class="text-center">属性</th><th class="text-center">类型</th><th class="text-center">默认值</th><th class="text-center">描述</th>
+                </tr></thead>
+                <tbody class="text-center">
+                <tr><td class="text-primary f16">minWidth</td><td>Number</td><td class="text-gray">104</td><td class="text-muted text-left">插槽节点的最小宽度，单位为像素。</td></tr>
+                <tr><td class="text-primary f16">minHeight</td><td>Number</td><td class="text-gray">26</td><td class="text-muted text-left">插槽节点的最小高度，单位为像素。</td></tr>
+                <tr><td class="text-primary f16">resizable</td><td>Boolean</td><td class="text-gray">false</td><td class="text-muted text-left">是否支持调整大小，默认为不支持。</td></tr>
+                <tr><td class="text-primary f16">initInfo</td><td>Json Object</td><td class="text-gray">{}</td><td class="text-muted text-left">添加一个空白的某类型插槽节点时使用的默认值定义。</td></tr>
+                <tr><td class="text-primary f16">exec</td><td>Function</td><td class="text-gray">(id,json){}</td><td class="text-muted text-left">渲染指定type的节点的内部内容模板，遵循Eeact render模板规范。<br>传参：id是节点ID的引用，json是节点详细数据的引用。</td></tr>
+                </tbody>
+            </table>
         </div>
         <div id="returns" class="container-fluid" data-title="返回值">
             <h2 class="text-primary">返回值</h2>

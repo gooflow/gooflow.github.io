@@ -42,9 +42,16 @@
                         height : 'The fixed height of the node'
                         } </code></p>
             </div>
+            <div id="slotNodeRenders" class="container-fluid" data-title="$slotNodeRenders">
+                <h3><span class="text-gray">this.</span>$slotNodeRenders <small>Type: JsonMap</small></h3>
+                <p class="indent28">The rendering configuration that only uses custom html label templates is adopted for the slot type nodes, (Since version 1.5)<br>
+                    The key of Json is the name of the node type, and value is also a Json structure：<br>
+                    <code> { minWidth : 'Minimum width', minHeight : 'Minimum height', resizable:Whether resizing is supported, initInfo:{A blank slot defination},
+                        exec:(id,json)=>{'Data rendering following Eeact render template specification'} } </code></p>
+            </div>
             <div id="workExtendStep" class="container-fluid" data-title="$workExtendStep">
                 <h3><span class="text-gray">this.</span>$workExtendStep <small>Type: Number</small></h3>
-                <p class="indent28">When expanding the available area of​the drawing workspace manually, how many pixels are added after expanding/width at a time, the default is 200px.</p>
+                <p class="indent28">When expanding the available area of the drawing workspace manually, how many pixels are added after expanding/width at a time, the default is 200px.</p>
             </div>
             <div id="ghost" class="container-fluid" data-title="$ghost">
                 <h3><span class="text-gray">this.$refs.</span>$ghost <small>Type: React Component</small></h3>

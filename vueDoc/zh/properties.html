@@ -38,6 +38,12 @@
                     Json的key为节点类型名称，value也为Json结构：<br>
                     <code> { class : '节点另外自定义背景图的样式类', width : '节点的固定宽度' , height : '节点的固定高度' } </code></p>
             </div>
+            <div id="slotNodeRenders" class="container-fluid" data-title="$slotNodeRenders">
+                <h3><span class="text-gray">this.prop.</span>$slotNodeRenders <small>类型：JsonMap</small></h3>
+                <p class="indent28"> 对于插槽类型类型节点采取只使用自定义VUE标签模板的渲染配置，1.5版本新增。<br>
+                    Json的key为节点类型名称，value也为Json结构：<br>
+                    <code> { minWidth : '节点最小宽度', minHeight : '节点最小高度', resizable:是否能调整大小, initInfo:{默认空白数据} } </code></p>
+            </div>
             <div id="workExtendStep" class="container-fluid" data-title="$workExtendStep">
                 <h3><span class="text-gray">this.prop.</span>$workExtendStep <small>类型：Number</small></h3>
                 <p class="indent28">在手动扩展绘图工作区的可用区域时，一次扩展宽/高后增加多少像素，默认200。</p>
