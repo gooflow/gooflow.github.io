@@ -27,7 +27,7 @@
             "height": 180,
             "marked": true,
             "extra": {
-                "image": "img/card.png",
+                "image": "/img/card.png",
                 "avator": "https://portrait.gitee.com/uploads/avatars/user/157/472359_foolegg126_1578924954.png!avatar200",
                 "userName": "加藤鹰",
                 "country": "小日子霓虹岛国",
