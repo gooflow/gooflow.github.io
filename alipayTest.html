@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>app拉起支付宝手机端APP</title>
+</head>
+<body>
+<script>
+  var intent = 'https://ur.alipay.com/1bsLcnq4PRl0615wHPZpqj';
+  var ifr = document.createElement('iframe');
+  ifr.src = intent;
+  ifr.style.display = 'none';
+  document.body.appendChild(ifr);
+  window.setTimeout(function () {
+    document.body.removeChild(ifr);
+    window.location.href = intent;
+  }, 200)
+</script>
+</body>
+</html>
