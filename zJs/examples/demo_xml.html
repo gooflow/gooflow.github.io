@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:v="urn:schemas-microsoft-com:vml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <title>流程图DEMO - XML数据</title>
+    <!--[if lt IE 9]>
+    <?import namespace="v" implementation="#default#VML" ?>
+    <script type="text/javascript" src="https://cdn.bootcss.com/json2/20160511/json2.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon"/>
+    <link rel="stylesheet" type="text/css" href="../dist/GooFlow.min.css"/>
+</head>
+<body>
+<div id="demo" style="width:100%;height:540px;"></div>
+<div id="demo2" style="width:100%;height:30px;"></div>
+<input id="load" type="button" value='导入XML格式' onclick="Load()"/>
+<input id="submit" type="button" value='导出XML结果' onclick="Export()"/>
+<input id="clear" type="button" value='清空' onclick="demo.clearData()"/>
+<input type="button" value='下载json流程图文件' onclick="Download('json')"/>
+<input type="button" value='下载xml流程图文件' onclick="Download('xml')"/>
+<textarea id="result" row="6"></textarea>
+<script src="../assets/js/demo_xml.js"></script>
+<script type="text/javascript">
+    var property={
+        auth:auth,
+        toolBtns:["start round mix","end round","task","node","chat","state","plug","join","fork","complex mix"],
+        haveHead:true,
+        headLabel:true,
+        headBtns:["new","open","save","undo","redo","reload","print"],//如果haveHead=true，则定义HEAD区的按钮
+        haveTool:true,
+        haveGroup:true,
+        useOperStack:true
+    };
+    var demo;
+    $(document).ready(function(){
+        //demo=$.createGooFlow("#demo",property);
+        demo=GooFlow.init("#demo",property);
+        // demo.loadData(jsondata);
+        demo.onItemRightClick=function(id, type){
+            console.log("onItemRightClick: "+id+","+type);
+            return true;//返回false可以阻止浏览器默认的右键菜单事件
+        };
+        demo.onItemDbClick=function(id, type){
+            console.log("onItemDbClick: "+id+","+type);
+            //return false;//返回false可以阻止原组件自带的双击直接编辑事件
+        };
+        demo.onPrintClick=function(){
+            demo.print(1);
+        };
+    });
+    function Load(){
+        $.ajax("demo/data2.xml",{
+            success:function(data){
+                demo.loadBpmnXML(data,{"startEvent":'start round mix',"endEvent":'end round mix'});
+            }
+        })
+    }
+    function Download(fileType){
+        demo.exportDataFile('myFlow',fileType);
+    }
+    function Export(){
+        document.getElementById("result").value=demo.exportBpmnXML({"start round mix":'startEvent',"end round mix":'endEvent'});
+    }
+    window.onresize=function(){
+        demo.reinitSize(window.innerWidth-15,window.innerHeight-30);
+    }
+</script>
+</body>
+</html>
